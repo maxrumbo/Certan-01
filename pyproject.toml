@@ -1,13 +1,16 @@
 [project]
 name = "certan-01"
 version = "0.1.0"
-description = "Add your description here"
+description = "Optimasi Rute Kurir Pengiriman Paket E-Commerce Berbasis Algoritma A* dan Uniform Cost Search pada Jaringan Jalan Perkotaan"
 readme = "README.md"
 authors = [
-    { name = "Maxwell Rumahorbo", email = "maxrumbo06@gmail.com" }
+    { name = "Maxwell Rumahorbo", email = "maxrumbo06@gmail.com" },
+    { name = "Rahel Silaban" },
+    { name = "Arya Sinambela" }
 ]
 requires-python = ">=3.11"
 dependencies = [
+    "matplotlib>=3.11.2",
     "numpy>=2.4.6",
     "pandas>=3.0.5",
     "pytest>=9.1.1",
@@ -16,6 +19,7 @@ dependencies = [
 
 [project.scripts]
 certan-01 = "certan_01:main"
+certan-route = "certan_01.cli:main"
 
 [build-system]
 requires = ["uv_build>=0.12.10,<0.13.0"]

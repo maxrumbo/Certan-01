@@ -5,6 +5,22 @@ build/
 dist/
 wheels/
 *.egg-info
+.pytest_cache/
 
 # Virtual environments
-.venv
+.venv/
+
+# Dokumen internal dan berkas draf laporan
+Role & Jobdesc.md
+Topics.md
+reports/draft_*.md
+reports/naskah_*.md
+*.docx
+*.doc
+~$*.docx
+
+# Lingkungan IDE dan Sistem Operasi
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
