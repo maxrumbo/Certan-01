@@ -29,6 +29,7 @@ Peta Konseptual Jaringan Jalan:
 from __future__ import annotations
 
 from certan_01.models import Graph, Node
+from certan_01.osm_loader import LANDMARK_LABELS, LANDMARKS, load_laguboti_graph
 
 
 def build_urban_road_network(
@@ -156,5 +157,83 @@ def list_available_scenarios() -> list[dict]:
             "hub_id"     : "D",
             "goal_id"    : "J",
             "description": "Pengiriman dari Jl. Veteran ke Perumahan Griya Indah.",
+        },
+    ]
+
+
+# ---------------------------------------------------------------------------
+# Laguboti Nyata: Skenario Berbasis Data OSM
+# ---------------------------------------------------------------------------
+
+def build_laguboti_road_network(
+    hub_landmark: str = "hub_jne_laguboti",
+    goal_landmark: str = "it_del_sitoluama",
+    vehicle: str = "motor_matik_kurir",
+) -> Graph:
+    """
+    Bangun dan kembalikan objek Graph berbasis data jaringan jalan nyata
+    Kecamatan Laguboti, Kabupaten Toba, Sumatera Utara.
+
+    Data bersumber dari OpenStreetMap (OSMnx, radius 4.5 km dari IT Del)
+    dengan bobot biaya BBM riil berdasarkan profil kendaraan kurir.
+
+    Args:
+        hub_landmark  : Kunci landmark asal kurir (lihat osm_loader.LANDMARKS).
+        goal_landmark : Kunci landmark tujuan pengiriman paket.
+        vehicle       : Kunci profil kendaraan dari vehicle_fuel_model.json.
+
+    Returns:
+        Graph: Objek graf jaringan jalan Laguboti siap untuk A* / UCS.
+    """
+    return load_laguboti_graph(
+        hub_landmark=hub_landmark,
+        goal_landmark=goal_landmark,
+        vehicle=vehicle,
+    )
+
+
+def list_laguboti_scenarios() -> list[dict]:
+    """
+    Kembalikan daftar 4 skenario pengiriman paket nyata di Laguboti
+    untuk digunakan pada mode demonstrasi CLI.
+
+    Returns:
+        List dict dengan kunci 'label', 'hub_landmark', 'goal_landmark',
+        'vehicle', 'description'.
+    """
+    return [
+        {
+            "label"        : "Skenario A: Hub JNE Laguboti -> Institut Teknologi Del",
+            "hub_landmark" : "hub_jne_laguboti",
+            "goal_landmark": "it_del_sitoluama",
+            "vehicle"      : "motor_matik_kurir",
+            "description"  : "Pengiriman paket dari Hub JNE/Kantor Pos Laguboti ke "
+                             "Institut Teknologi Del (Sitoluama). Melewati jalan arteri "
+                             "utama dan jalan desa Sitoluama.",
+        },
+        {
+            "label"        : "Skenario B: Hub JNE Laguboti -> Pasar Tradisional",
+            "hub_landmark" : "hub_jne_laguboti",
+            "goal_landmark": "pasar_laguboti",
+            "vehicle"      : "motor_matik_kurir",
+            "description"  : "Pengiriman paket jarak dekat di dalam pusat kota Laguboti. "
+                             "Menguji kemampuan A* menavigasi kawasan padat/macet.",
+        },
+        {
+            "label"        : "Skenario C: IT Del -> SMA Unggul Del",
+            "hub_landmark" : "it_del_sitoluama",
+            "goal_landmark": "sma_unggul_del",
+            "vehicle"      : "motor_matik_kurir",
+            "description"  : "Pengiriman internal kawasan pendidikan Del. Rute pendek "
+                             "antar institusi pendidikan di Sitoluama.",
+        },
+        {
+            "label"        : "Skenario D: Hub JNE Laguboti -> Simpang Balige",
+            "hub_landmark" : "hub_jne_laguboti",
+            "goal_landmark": "simpang_balige_jalan",
+            "vehicle"      : "motor_matik_kurir",
+            "description"  : "Pengiriman ke area pinggiran menuju Balige. Menguji "
+                             "optimasi antara Jalan Lintas Sumatera (cepat) vs "
+                             "jalan alternatif desa (lebih dekat tapi boros BBM).",
         },
     ]

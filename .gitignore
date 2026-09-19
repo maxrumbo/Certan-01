@@ -9,12 +9,11 @@ wheels/
 
 # Virtual environments
 .venv/
+cache/
 
 # Dokumen internal dan berkas draf laporan
-Role & Jobdesc.md
-Topics.md
-reports/draft_*.md
-reports/naskah_*.md
+*.md
+!README.md
 *.docx
 *.doc
 ~$*.docx

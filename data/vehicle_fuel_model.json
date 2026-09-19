@@ -1,0 +1,140 @@
+{
+  "_metadata": {
+    "version": "2.0",
+    "updated_at": "2026-09-22",
+    "description": "Model konsumsi bahan bakar dan profil kendaraan kurir untuk sistem optimasi rute A* dan UCS di Kecamatan Laguboti, Kabupaten Toba, Sumatera Utara.",
+    "fuel_price_source": "data/indonesia_bbm_historical.json (PT Pertamina Patra Niaga, scraped from pertamina.com)",
+    "vehicle_source": "Astra Honda Motor Official Specifications (ECE R40 urban cycle test mode)"
+  },
+
+  "active_fuel_prices_idr_per_liter": {
+    "_note": "Harga aktif per 2026-04-01, sesuai data indonesia_bbm_historical.json periode terbaru.",
+    "pertalite": 10000,
+    "pertamax": 12300,
+    "pertamax_turbo": 13100,
+    "pertamax_green_95": 12900,
+    "dexlite": 14200,
+    "pertamina_dex": 14500,
+    "biosolar": 6800
+  },
+
+  "vehicle_profiles": {
+    "motor_matik_kurir": {
+      "label": "Sepeda Motor Matik Kurir (Honda BeAT / Vario 110-125cc)",
+      "fuel_type": "pertalite",
+      "fuel_price_per_liter_idr": 10000,
+      "fuel_efficiency_km_per_liter": 50.0,
+      "base_cost_per_km_idr": 200.0,
+      "payload_capacity_kg": 30,
+      "use_case": "Kurir paket reguler / same-day delivery (default)"
+    },
+    "motor_bebek_kurir": {
+      "label": "Sepeda Motor Bebek (Honda Revo / Supra 100cc)",
+      "fuel_type": "pertalite",
+      "fuel_price_per_liter_idr": 10000,
+      "fuel_efficiency_km_per_liter": 55.0,
+      "base_cost_per_km_idr": 182.0,
+      "payload_capacity_kg": 20,
+      "use_case": "Kurir surat / dokumen ringan"
+    },
+    "motor_premium_kurir": {
+      "label": "Sepeda Motor Sport / Premium (125-150cc)",
+      "fuel_type": "pertamax",
+      "fuel_price_per_liter_idr": 12300,
+      "fuel_efficiency_km_per_liter": 45.0,
+      "base_cost_per_km_idr": 273.0,
+      "payload_capacity_kg": 25,
+      "use_case": "Kurir ekspres / prioritas"
+    },
+    "mobil_box_kurir": {
+      "label": "Mobil Pick-Up / Box Kecil (1000-1300cc Bensin)",
+      "fuel_type": "pertamax",
+      "fuel_price_per_liter_idr": 12300,
+      "fuel_efficiency_km_per_liter": 12.0,
+      "base_cost_per_km_idr": 1025.0,
+      "payload_capacity_kg": 500,
+      "use_case": "Pengiriman paket besar / cargo"
+    },
+    "mobil_box_diesel": {
+      "label": "Mobil Box Diesel (Mitsubishi L300 / Colt Diesel)",
+      "fuel_type": "biosolar",
+      "fuel_price_per_liter_idr": 6800,
+      "fuel_efficiency_km_per_liter": 10.0,
+      "base_cost_per_km_idr": 680.0,
+      "payload_capacity_kg": 1500,
+      "use_case": "Pengiriman cargo / distribusi gudang"
+    }
+  },
+
+  "default_vehicle": "motor_matik_kurir",
+
+  "road_traffic_taxonomy": {
+    "_note": "Pengali konsumsi BBM berdasarkan klasifikasi jalan OpenStreetMap (highway tag). Diturunkan dari karakteristik jalan dan pola lalu lintas khas Kecamatan Laguboti.",
+    "trunk": {
+      "description": "Jalan Nasional / Lintas Sumatera (Aspal lebar, lalu lintas lancar, minim hambatan)",
+      "osm_highway_tag": "trunk",
+      "typical_speed_kmh": 45,
+      "consumption_multiplier": 1.0,
+      "effective_cost_per_km_idr_motor": 200.0
+    },
+    "primary": {
+      "description": "Jalan Utama Kota / Arteri Sekunder (Laguboti - Balige)",
+      "osm_highway_tag": "primary",
+      "typical_speed_kmh": 40,
+      "consumption_multiplier": 1.05,
+      "effective_cost_per_km_idr_motor": 210.0
+    },
+    "secondary": {
+      "description": "Jalan Kolektor Penghubung Antar-Kecamatan",
+      "osm_highway_tag": "secondary",
+      "typical_speed_kmh": 35,
+      "consumption_multiplier": 1.15,
+      "effective_cost_per_km_idr_motor": 230.0
+    },
+    "tertiary": {
+      "description": "Jalan Lokal Antar-Desa (misal: Sitoluama - Sigumpar - Lumban Bagasan)",
+      "osm_highway_tag": "tertiary",
+      "typical_speed_kmh": 30,
+      "consumption_multiplier": 1.25,
+      "effective_cost_per_km_idr_motor": 250.0
+    },
+    "residential": {
+      "description": "Jalan Pemukiman / Gang Perumahan (banyak polisi tidur, stop-and-go)",
+      "osm_highway_tag": "residential",
+      "typical_speed_kmh": 20,
+      "consumption_multiplier": 1.5,
+      "effective_cost_per_km_idr_motor": 300.0
+    },
+    "unclassified": {
+      "description": "Jalan Desa / Akses Non-Status (potensi jalan bergelombang atau berlubang)",
+      "osm_highway_tag": "unclassified",
+      "typical_speed_kmh": 15,
+      "consumption_multiplier": 1.7,
+      "effective_cost_per_km_idr_motor": 340.0
+    },
+    "living_street": {
+      "description": "Jalan Gang Sempit / Padat Aktivitas Warga",
+      "osm_highway_tag": "living_street",
+      "typical_speed_kmh": 10,
+      "consumption_multiplier": 1.8,
+      "effective_cost_per_km_idr_motor": 360.0
+    }
+  },
+
+  "traffic_hotspots": [
+    {
+      "name": "Pasar Tradisional Laguboti",
+      "lat": 2.3667,
+      "lon": 99.1247,
+      "radius_meter": 250,
+      "traffic_penalty_multiplier": 1.6,
+      "peak_hours": ["07:00-09:00", "16:00-18:00"],
+      "description": "Aktivitas bongkar muat pedagang, parkir liar, dan angkot ngetem di depan pasar"
+    }
+  ],
+
+  "additional_costs": {
+    "parking_drop_off_idr": 1000,
+    "description": "Biaya parkir / berhenti sejenak saat mengantar paket ke alamat tujuan"
+  }
+}

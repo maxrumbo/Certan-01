@@ -1,7 +1,7 @@
 [project]
 name = "certan-01"
-version = "0.1.0"
-description = "Optimasi Rute Kurir Pengiriman Paket E-Commerce Berbasis Algoritma A* dan Uniform Cost Search pada Jaringan Jalan Perkotaan"
+version = "0.2.0"
+description = "Sistem Cerdas Pengiriman Paket E-Commerce: Optimasi Rute (A* & UCS) dan Alokasi Armada Kurir (CSP AC-3 & Backtracking MRV)"
 readme = "README.md"
 authors = [
     { name = "Maxwell Rumahorbo", email = "maxrumbo06@gmail.com" },
@@ -10,12 +10,17 @@ authors = [
 ]
 requires-python = ">=3.11"
 dependencies = [
+    "folium>=0.20.0",
     "matplotlib>=3.11.2",
+    "networkx>=3.0",
     "numpy>=2.4.6",
+    "osmnx>=2.1.1",
     "pandas>=3.0.5",
     "pytest>=9.1.1",
+    "scikit-learn>=1.9.1",
     "scipy>=1.17.1",
 ]
+
 
 [project.scripts]
 certan-01 = "certan_01:main"
@@ -24,3 +29,8 @@ certan-route = "certan_01.cli:main"
 [build-system]
 requires = ["uv_build>=0.12.10,<0.13.0"]
 build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
