@@ -46,6 +46,8 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 from matplotlib.lines import Line2D
 
+import folium
+
 from certan_01.data import build_urban_road_network, list_available_scenarios
 from certan_01.heuristics import euclidean_heuristic
 from certan_01.models import Graph, Node
@@ -519,3 +521,314 @@ def generate_all_figures(output_dir: Path = FIGURES_DIR) -> list[Path]:
 
     print(f"\n[VIZ] Selesai! {len(generated)} gambar tersimpan di: {output_dir.resolve()}")
     return generated
+
+
+# ---------------------------------------------------------------------------
+# Folium: Peta Interaktif Rute Laguboti
+# ---------------------------------------------------------------------------
+
+def generate_laguboti_folium_map(
+    graph: Graph,
+    ucs_result: SearchResult,
+    astar_result: SearchResult,
+    scenario_name: str = "laguboti",
+    output_dir: Path = FIGURES_DIR,
+    vehicle_label: str | None = None,
+    dist_result: SearchResult | None = None,
+    dist_fuel_cost: float | None = None,
+) -> Path:
+    """
+    Hasilkan peta interaktif HTML yang menampilkan rute optimal di atas
+    jaringan jalan nyata Kecamatan Laguboti menggunakan Folium + Esri tiles.
+
+    Peta menampilkan:
+      - Seluruh ruas jalan jaringan nyata (garis abu-abu tipis).
+      - Rute Rekomendasi Optimal (A*, ungu solid tebal).
+      - Rute Pembanding Jarak Terpendek (oranye putus-putus, jika ada).
+      - Rute Komparasi UCS (opsional dalam layer control).
+      - Marker Hub (biru) dan Goal (hijau).
+      - Panel Rekomendasi Sistem berisi info profil kendaraan kurir,
+        biaya BBM, perbandingan penghematan, dan efisiensi pencarian.
+
+    Args:
+        graph         : Graf jaringan jalan Laguboti yang digunakan pencarian.
+        ucs_result    : Hasil pencarian UCS (berbasis biaya BBM).
+        astar_result  : Hasil pencarian A* (berbasis biaya BBM).
+        scenario_name : Nama skenario untuk penamaan file output.
+        output_dir    : Direktori output untuk menyimpan file HTML.
+        vehicle_label : Label deskripsi kendaraan kurir dan spesifikasi BBM.
+        dist_result   : Hasil pencarian rute terpendek secara jarak (murni).
+        dist_fuel_cost: Biaya BBM riil jika melewati rute jarak terpendek.
+
+    Returns:
+        Path: Path file HTML yang dihasilkan.
+    """
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    # Cari hub dan goal node untuk centering peta
+    hub_node  = graph.hub_node()
+    goal_node = graph.goal_node()
+
+    # Center peta di titik tengah antara hub dan goal
+    if hub_node and goal_node:
+        center_lat = (hub_node.y + goal_node.y) / 2
+        center_lon = (hub_node.x + goal_node.x) / 2
+    elif hub_node:
+        center_lat, center_lon = hub_node.y, hub_node.x
+    else:
+        center_lat, center_lon = 2.3750, 99.1370   # Laguboti default
+
+    # Buat peta dengan Esri World Street Map (free, no API key)
+    m = folium.Map(
+        location=[center_lat, center_lon],
+        zoom_start=14,
+        tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+        attr="Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS"
+    )
+
+    # ---- Layer 1: Seluruh ruas jalan (background tipis) ----
+    all_roads_layer = folium.FeatureGroup(name="🗺️ Jaringan Jalan Laguboti (OSM)", show=True)
+
+    plotted_edges: set[tuple[str, str]] = set()
+    for node in graph.get_all_nodes():
+        for edge in graph.get_neighbors(node.node_id):
+            pair = (min(edge.from_node.node_id, edge.to_node.node_id),
+                    max(edge.from_node.node_id, edge.to_node.node_id))
+            if pair in plotted_edges:
+                continue
+            plotted_edges.add(pair)
+            folium.PolyLine(
+                locations=[
+                    [edge.from_node.y, edge.from_node.x],
+                    [edge.to_node.y,   edge.to_node.x],
+                ],
+                color="#94A3B8",
+                weight=1.5,
+                opacity=0.35,
+                tooltip=f"{edge.from_node.name} → {edge.to_node.name} | "
+                        f"{edge.distance_km:.3f} km | Rp {edge.total_cost:,.0f}"
+            ).add_to(all_roads_layer)
+    all_roads_layer.add_to(m)
+
+    # ---- Layer 2: Rute Pembanding Jarak Terpendek (Putus-putus) ----
+    if dist_result and dist_result.found and len(dist_result.path_ids) > 1:
+        f_cost = dist_fuel_cost if dist_fuel_cost is not None else 0.0
+        dist_layer = folium.FeatureGroup(
+            name=f"📏 Rute Jarak Terpendek | {dist_result.total_distance:.2f} km (BBM: Rp {f_cost:,.0f})",
+            show=True
+        )
+        dist_coords = []
+        for nid in dist_result.path_ids:
+            node = graph.get_node(nid)
+            dist_coords.append([node.y, node.x])
+        folium.PolyLine(
+            locations=dist_coords,
+            color="#EA580C",
+            weight=4,
+            dash_array="6, 8",
+            opacity=0.85,
+            tooltip=f"Rute Jarak Terpendek | {dist_result.total_distance:.2f} km | "
+                    f"Biaya BBM Riil: Rp {f_cost:,.0f} | "
+                    f"Simpul diekspansi: {dist_result.nodes_expanded}"
+        ).add_to(dist_layer)
+        dist_layer.add_to(m)
+
+    # ---- Layer 3: Rute Komparasi Algoritma UCS (BBM) ----
+    if ucs_result.found and len(ucs_result.path_ids) > 1:
+        ucs_layer = folium.FeatureGroup(
+            name=f"🔬 Algoritma UCS (BBM) | Rp {ucs_result.total_cost:,.0f} | {ucs_result.total_distance:.2f} km",
+            show=False   # Tidak aktif default agar tidak menumpuk, bisa diaktifkan di layer control
+        )
+        ucs_coords = []
+        for nid in ucs_result.path_ids:
+            node = graph.get_node(nid)
+            ucs_coords.append([node.y, node.x])
+        folium.PolyLine(
+            locations=ucs_coords,
+            color=COLOR_UCS,
+            weight=5,
+            opacity=0.8,
+            tooltip=f"UCS (BBM) | Biaya: Rp {ucs_result.total_cost:,.0f} | "
+                    f"Jarak: {ucs_result.total_distance:.2f} km | "
+                    f"Simpul: {ucs_result.nodes_expanded}"
+        ).add_to(ucs_layer)
+        ucs_layer.add_to(m)
+
+    # ---- Layer 4: 🏆 Rute Rekomendasi Optimal (A*) ----
+    if astar_result.found and len(astar_result.path_ids) > 1:
+        astar_layer = folium.FeatureGroup(
+            name=f"🏆 Rekomendasi Optimal (A*) | Rp {astar_result.total_cost:,.0f} | {astar_result.total_distance:.2f} km",
+            show=True
+        )
+        astar_coords = []
+        for nid in astar_result.path_ids:
+            node = graph.get_node(nid)
+            # Geser sedikit jika garis tumpang tindih
+            astar_coords.append([node.y + 0.00002, node.x + 0.00002])
+        folium.PolyLine(
+            locations=astar_coords,
+            color="#7C3AED",
+            weight=6,
+            opacity=0.95,
+            tooltip=f"🏆 Rekomendasi Optimal (A*) | Biaya: Rp {astar_result.total_cost:,.0f} | "
+                    f"Jarak: {astar_result.total_distance:.2f} km | "
+                    f"Simpul diekspansi: {astar_result.nodes_expanded}"
+        ).add_to(astar_layer)
+        astar_layer.add_to(m)
+
+    # ---- Marker: Hub & Goal ----
+    if hub_node:
+        folium.Marker(
+            location=[hub_node.y, hub_node.x],
+            popup=folium.Popup(
+                f"<div style='font-family:sans-serif; min-width:180px;'>"
+                f"<b style='color:#1E40AF;'>[HUB KURIR]</b><br>"
+                f"<b>{hub_node.name}</b><br>"
+                f"<span style='font-size:11px; color:#64748B;'>Titik Awal Pengiriman</span><br>"
+                f"<span style='font-size:10px; color:#94A3B8;'>({hub_node.y:.5f}, {hub_node.x:.5f})</span>"
+                f"</div>",
+                max_width=250
+            ),
+            tooltip=f"[HUB] {hub_node.name}",
+            icon=folium.Icon(color="blue", icon="home", prefix="fa")
+        ).add_to(m)
+
+    if goal_node:
+        folium.Marker(
+            location=[goal_node.y, goal_node.x],
+            popup=folium.Popup(
+                f"<div style='font-family:sans-serif; min-width:180px;'>"
+                f"<b style='color:#059669;'>[TUJUAN PAKET]</b><br>"
+                f"<b>{goal_node.name}</b><br>"
+                f"<span style='font-size:11px; color:#64748B;'>Alamat Pengantaran</span><br>"
+                f"<span style='font-size:10px; color:#94A3B8;'>({goal_node.y:.5f}, {goal_node.x:.5f})</span>"
+                f"</div>",
+                max_width=250
+            ),
+            tooltip=f"[TUJUAN] {goal_node.name}",
+            icon=folium.Icon(color="green", icon="package", prefix="fa")
+        ).add_to(m)
+
+    # ---- Komputasi Metrik untuk Panel Info ----
+    veh_text = vehicle_label if vehicle_label else "Sepeda Motor Matik Kurir (Honda BeAT 110cc) | 50.0 km/L | Pertalite Rp 10,000/L"
+
+    efficiency_text = ""
+    if ucs_result.found and astar_result.found and ucs_result.nodes_expanded > 0:
+        saved_nodes = ucs_result.nodes_expanded - astar_result.nodes_expanded
+        saved_pct = (saved_nodes / ucs_result.nodes_expanded) * 100
+        efficiency_text = (
+            f"⚡ <b>Efisiensi Pencarian:</b> A* hemat <b>{saved_pct:.1f}%</b> ekspansi simpul "
+            f"({astar_result.nodes_expanded} vs {ucs_result.nodes_expanded} simpul UCS)"
+        )
+
+    comparison_html = ""
+    if dist_result and dist_result.found and dist_fuel_cost is not None:
+        savings_rp = dist_fuel_cost - astar_result.total_cost
+        extra_km = astar_result.total_distance - dist_result.total_distance
+        if abs(extra_km) < 0.01 and abs(savings_rp) < 1.0:
+            comparison_html = (
+                "<div style='background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.4); "
+                "border-radius:6px; padding:6px 10px; margin-top:8px; font-size:11px; color:#A7F3D0;'>"
+                "✨ <b>Status Rute:</b> Rute terpendek sekaligus rute paling hemat BBM!"
+                "</div>"
+            )
+        elif savings_rp > 0:
+            savings_pct = (savings_rp / dist_fuel_cost * 100) if dist_fuel_cost > 0 else 0.0
+            comparison_html = (
+                f"<div style='background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.4); "
+                f"border-radius:6px; padding:6px 10px; margin-top:8px; font-size:11px; color:#A7F3D0;'>"
+                f"💰 <b>Hemat BBM:</b> Rp {savings_rp:,.0f} ({savings_pct:.1f}%) dibanding rute terpendek<br>"
+                f"<span style='color:#94A3B8; font-size:10px;'>Trade-off: +{extra_km:.2f} km (melewati jalan lebih lancar & irit)</span>"
+                f"</div>"
+            )
+        else:
+            comparison_html = (
+                f"<div style='background:rgba(59,130,246,0.15); border:1px solid rgba(59,130,246,0.4); "
+                f"border-radius:6px; padding:6px 10px; margin-top:8px; font-size:11px; color:#BFDBFE;'>"
+                f"ℹ️ <b>Rute Optimal:</b> {astar_result.total_distance:.2f} km | Rp {astar_result.total_cost:,.0f}"
+                f"</div>"
+            )
+
+    legend_html = f"""
+    <div style="
+        position: fixed; top: 12px; right: 12px; z-index: 9999;
+        background: rgba(15, 23, 42, 0.94); backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px;
+        padding: 16px; font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+        color: #F8FAFC; width: 320px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6);
+    ">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+        <span style="background: linear-gradient(135deg, #10B981, #059669); color:#FFFFFF;
+                     font-size:10px; font-weight:700; padding:3px 9px; border-radius:20px;
+                     text-transform:uppercase; letter-spacing:0.5px;">
+          🏆 Rekomendasi Optimal
+        </span>
+        <span style="font-size:11px; color:#94A3B8; font-weight:600;">Milestone 1</span>
+      </div>
+
+      <h3 style="margin:0 0 4px 0; font-size:14px; font-weight:700; color:#FFFFFF;">
+        {scenario_name}
+      </h3>
+
+      <!-- Box Kendaraan -->
+      <div style="background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255, 255, 255, 0.06);
+                  border-radius: 8px; padding: 8px 10px; margin: 8px 0; font-size:11px; line-height:1.4;">
+        <span style="color:#38BDF8; font-weight:600;">🛵 Profil Kendaraan:</span><br>
+        <span style="color:#CBD5E1;">{veh_text}</span>
+      </div>
+
+      <!-- Ringkasan Hasil Rute Terbaik -->
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:6px; margin:8px 0;">
+        <div style="background:rgba(124, 58, 237, 0.15); border:1px solid rgba(124, 58, 237, 0.4);
+                    border-radius:8px; padding:8px; text-align:center;">
+          <div style="font-size:10px; color:#C4B5FD; text-transform:uppercase;">Estimasi BBM</div>
+          <div style="font-size:15px; font-weight:700; color:#FFFFFF; margin-top:2px;">
+            Rp {astar_result.total_cost:,.0f}
+          </div>
+        </div>
+        <div style="background:rgba(59, 130, 246, 0.15); border:1px solid rgba(59, 130, 246, 0.4);
+                    border-radius:8px; padding:8px; text-align:center;">
+          <div style="font-size:10px; color:#93C5FD; text-transform:uppercase;">Total Jarak</div>
+          <div style="font-size:15px; font-weight:700; color:#FFFFFF; margin-top:2px;">
+            {astar_result.total_distance:.2f} km
+          </div>
+        </div>
+      </div>
+
+      <!-- Perbandingan Penghematan -->
+      {comparison_html}
+
+      <!-- Efisiensi Algoritma -->
+      <div style="font-size:10.5px; color:#94A3B8; margin-top:8px; border-top:1px solid #334155; padding-top:8px; line-height:1.4;">
+        {efficiency_text}
+      </div>
+
+      <!-- Keterangan Garis di Peta -->
+      <div style="margin-top:10px; padding-top:8px; border-top:1px solid #334155; font-size:11px;">
+        <div style="margin-bottom:4px;">
+          <span style="background:#7C3AED; width:16px; height:4px; display:inline-block; vertical-align:middle; border-radius:2px;"></span>
+          <span style="margin-left:6px; color:#E2E8F0;"><b>Ungu Solid:</b> Rute Rekomendasi (A*)</span>
+        </div>
+        <div>
+          <span style="background:#EA580C; width:16px; height:0px; border-top:3px dashed #EA580C; display:inline-block; vertical-align:middle;"></span>
+          <span style="margin-left:6px; color:#E2E8F0;"><b>Oranye Putus:</b> Rute Terpendek</span>
+        </div>
+      </div>
+    </div>
+    """
+    m.get_root().html.add_child(folium.Element(legend_html))
+
+    # Layer control di pojok kiri bawah agar tidak menutupi panel info
+    folium.LayerControl(position="bottomleft", collapsed=False).add_to(m)
+
+    # Bersihkan nama file dari karakter yang tidak valid di Windows
+    safe_name = scenario_name.lower()
+    for ch in (" ", "->", "→", ":", "/", "\\", "*", "?", "\"", "<", ">", "|"):
+        safe_name = safe_name.replace(ch, "_")
+    # Hapus underscore berulang dan trailing underscore
+    import re as _re
+    safe_name = _re.sub(r"_+", "_", safe_name).strip("_")
+    out_path = output_dir / f"laguboti_rute_{safe_name}.html"
+    m.save(str(out_path))
+
+    return out_path
