@@ -18,6 +18,14 @@ cache/
 *.doc
 ~$*.docx
 
+# Output chatbot (generated, bukan deliverable)
+reports/figures/laguboti_rute_chat_*.html
+reports/figures/laguboti_full_map_preview.html
+reports/sensitivity_chart.png
+
+# File OSM besar yang tidak diperlukan runtime
+data/toba_taput_network.graphml
+
 # Lingkungan IDE dan Sistem Operasi
 .vscode/
 .idea/
