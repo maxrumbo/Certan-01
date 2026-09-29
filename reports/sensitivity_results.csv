@@ -1,0 +1,6 @@
+scenario,packages_count,fleet_size,total_weight_kg,bulky_packages,total_hours,status,avg_time_ms,std_time_ms,backtrack_steps,capacity_utilization_pct
+Skenario 5 Pkg,5,2,20.0,0,1.5,Feasible,0.123,0.04,0,57.1
+Skenario 10 Pkg,10,3,39.3,0,3.0,Feasible,0.295,0.049,0,16.7
+Skenario 20 Pkg,20,3,122.9,2,6.4,Feasible,1.022,0.03,0,52.3
+Skenario 30 Pkg,30,5,218.4,4,9.8,Feasible,4.094,0.95,0,48.0
+Skenario 50 Pkg,50,5,408.0,8,16.6,Feasible,13.218,2.12,0,89.7
