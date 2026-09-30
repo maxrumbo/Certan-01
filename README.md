@@ -108,7 +108,38 @@ uv run python -m certan_01.visualize
 
 ---
 
-## 5. Ringkasan Hasil Benchmark Kinerja
+## 5. Milestone 2: Mesin Inferensi Alokasi Armada Kurir (CSP)
+
+Pada Milestone 2, sistem diperluas dengan **Mesin Inferensi Batasan (*Constraint Satisfaction Problem Solver*)** untuk alokasi armada kurir di koridor Laguboti–Balige.
+
+### Algoritma & Fitur Unggulan
+- **AC-3 (*Arc Consistency 3*)**: Memangkas domain kurir yang tidak konsisten secara apriori.
+- **Backtracking Search Terpandu**: Heuristik **MRV (*Minimum Remaining Values*)** berbasis *fail-first principle*, tie-breaker bobot, dan **Fleet-Tiered LCV** untuk memprioritaskan armada motor bagi paket reguler demi mencadangkan kapasitas Mobil Box bagi paket besar (*bulky*).
+- **Hard Constraints Enforcement**: Menegakkan batas kapasitas muatan kendaraan, kualifikasi paket besar, dan batas jam kerja maksimal 8.0 jam sesuai UU Ketenagakerjaan No. 13/2003.
+- **Dataset Riil E-Commerce**: Menggunakan 50 paket riil e-commerce terdistribusi empiris (Kaggle & Amazon Last-Mile Delivery) yang dipetakan pada simpul OpenStreetMap kawasan Laguboti–Balige.
+
+### Panduan Eksekusi Milestone 2
+* **Demo Alokasi Armada (4 Skenario 5–50 Paket)**:
+  ```bash
+  uv run python scripts/run_solver_demo.py
+  ```
+* **Analisis Sensitivitas & Grafik Benchmark**:
+  ```bash
+  uv run python scripts/run_sensitivity_benchmark.py
+  ```
+* **Visualisasi Grafis Milestone 2**:
+  ```bash
+  uv run python scripts/generate_m2_visualizations.py
+  ```
+* **Pengujian Unit Otomatis (69 Kasus Uji Otomatis)**:
+  ```bash
+  uv run pytest
+  ```
+  *Status: 69 passed (100% lulus).*
+
+---
+
+## 6. Ringkasan Hasil Benchmark Kinerja (Milestone 1)
 
 Berikut adalah hasil pengujian komparasi pada 4 skenario rute kurir:
 
@@ -123,13 +154,13 @@ Berikut adalah hasil pengujian komparasi pada 4 skenario rute kurir:
 
 ---
 
-## 6. Anggota Tim dan Pembagian Peran
+## 7. Anggota Tim dan Pembagian Peran
 
 | Nama Mahasiswa | Peran | Tanggung Jawab Utama |
 | :--- | :--- | :--- |
-| **Maxwell Rumahorbo** | Lead Developer & Technical Lead | Setup repositori Astral uv, engine pencarian UCS dan A*, antarmuka CLI, generator visualisasi, dan pengujian unit pytest. |
-| **Rahel Silaban** | AI Architect & Mathematical Formulation | Pemodelan 5-tuple, perancangan fungsi heuristik Euclidean berbobot, pembuktian matematis admissible dan consistent, serta dataset jaringan jalan. |
-| **Arya Sinambela** | Business Domain & Lead Laporan | Analisis domain bisnis dan pain points kurir, spesifikasi matriks PEAS, analisis 6 karakteristik lingkungan, etika kerja kurir, dan kompilasi laporan PDF. |
+| **Maxwell Rumahorbo** | Lead Developer & Technical Lead | Setup repositori Astral uv, engine pencarian UCS dan A*, mesin inferensi batasan CSP (AC-3 + Backtracking MRV/LCV), generator visualisasi, dan pengujian unit pytest. |
+| **Rahel Silaban** | AI Architect & Mathematical Formulation | Pemodelan formal triplet $\langle X, D, C \rangle$, formulasi batasan kapasitas dan regulasi jam kerja, perancangan fungsi heuristik Euclidean berbobot, serta pemetaan dataset riil e-commerce. |
+| **Arya Sinambela** | Business Domain & Lead Laporan | Analisis domain bisnis dan regulasi ketenagakerjaan, verifikasi kepatuhan batasan operasional, QA pengujian batas (*borderline/over-capacity*), dan kompilasi laporan akhir. |
 
 ---
 
