@@ -10,15 +10,19 @@ authors = [
 ]
 requires-python = ">=3.11"
 dependencies = [
+    "chromadb>=1.5.9",
     "folium>=0.20.0",
     "matplotlib>=3.11.2",
     "networkx>=3.0",
     "numpy>=2.4.6",
     "osmnx>=2.1.1",
     "pandas>=3.0.5",
+    "pypdf>=6.21.4",
     "pytest>=9.1.1",
+    "python-docx>=1.2.0",
     "scikit-learn>=1.9.1",
     "scipy>=1.17.1",
+    "sentence-transformers>=6.2.0",
 ]
 
 
