@@ -1,0 +1,100 @@
+SiCepat | Tokopedia Care
+Website tokopedia memerlukan javascript untuk dapat ditampilkan.
+Bantuan
+Lihat Semua Topik
+SiCepat
+Perhatian!
+Per tanggal  13 November 2024  untuk layanan Next Day kurir SiCepat sudah tidak tersedia di Tokopedia.
+SiCepat merupakan salah satu layanan pengiriman yang tersedia di Tokopedia. Kamu dapat memilih jenis layanan pengiriman yang disediakan seperti Reguler Service, Cargo Service (SiCepat Gokil) dan SiCepat Halu (Ekonomi).
+Apabila kamu ingin menggunakan SiCepat sebagai layanan pengiriman dengan sistem  pick up , kamu diharapkan telah membaca dan memahami syarat ketentuan yang berlaku sebelum menggunakan layanan kurir yang terkait.
+FAQ
+S&amp;K
+Kontak
+Pertanyaan-pertanyaan seputar SiCepat
+Q: Apakah untuk layanan SiCepat Halu bisa kirim manual?
+Tidak bisa karena layanan tersebut hanya tersedia di Tokopedia sehingga pengirimannya dapat menggunakan kode booking dari Tokopedia ya.
+Q: Apakah ada cashback juga untuk pengiriman dengan SiCepat Halu?
+Saat ini untuk pengiriman dengan SiCepat Halu belum bisa mendapatkan cashback SiCepat ya.
+Q: Apakah penjual masih bisa melakukan input resi?
+Dengan fitur AWB otomatis, penjual tidak lagi perlu menginput resi.
+Q: Bagaimana jika penjual sudah melakukan pengiriman dengan resi manual sebelum fitur  pick up  aktif?
+Penjual dapat melakukan input resi menggunakan fitur Ganti Kurir. Pilih pengiriman dengan SiCepat sesuai dengan tipe layanan yang dipilih, lalu masukkan resi manual yang diberikan oleh SiCepat.
+Q: Bagaimana dengan ongkos kirim SiCepat menggunakan resi manual?
+Tidak ada pemotongan saldo untuk ongkos kirim dengan menggunakan resi manual. Pembayaran pengiriman dengan resi manual tetap harus dilakukan langsung ke SiCepat.
+Q: Mengapa ongkos kirim dan area jangkauan layanan di Tokopedia dan di Website SiCepat dapat berbeda?
+Ongkos kirim dan area jangkauan layanan dapat berbeda sesuai dengan kesepakatan promosi dan kerjasama yang berlaku.
+Q: Bagaimana jika ongkos kirim aktual berbeda dengan yang ada pada invoice?
+Ketika barang diterima Pembeli dan dilakukan pengukuran serta menimbang kembali namun ternyata berbeda dengan invoice, Pembeli bisa mengajukan pergantian selisih ongkos kirim yang lebih murah ke Tokopedia Care melalui  Pesan Bantuan  dengan melampirkan bukti pengukuran dan penimbangan barang ketika dalam keadaan  belum dilakukan  unboxing  . Jika ditemukan terdapat selisih ongkir dan bukti mencukupi, kelebihan bayar untuk ongkos kirim akan dikembalikan ke Pembeli. Batas waktu untuk melakukan pelaporan  maksimal 2 hari  sejak barang terkirim.
+Q: Bagaimana jika nomor resi booking tidak muncul pada pesanan di tab Konfirmasi Pengiriman dan terdapat tulisan “Kode Tidak Ditemukan”?
+Klik  Coba Lagi  untuk mendapatkan nomor resi booking.
+Q: Apakah penjual harus mencetak label pengiriman?
+Label pengiriman dapat memudahkan proses  scan pick up  oleh kurir. Apabila penjual tidak mencetak label pengiriman, penjual dapat menuliskan nomor resi booking pada paket.
+Q: Bagaimana jika penjual sudah memiliki jadwal  pick up  berjalan dengan SiCepat?
+Penjual dapat tetap mengikuti jadwal  pick up  yang sudah ada tanpa melakukan  request pick up  di sistem Tokopedia dengan proses  pick up   maksimal 3 jam  sebelum pesanan batal. Selama nomor resi booking tertulis pada paket ataupun berhasil di- scan  dari label pengiriman, status pengiriman akan ter- update  pada sistem Tokopedia.
+Q: Apakah penjual bisa melakukan drop off langsung ke gerai SiCepat?
+Penjual bisa melakukan  drop off  langsung ke gerai SiCepat  maksimal 3 jam  sebelum pesanan batal. Selama penjual sudah melakukan  request pick up  dan nomor resi booking tertulis pada paket ataupun berhasil di- scan  dari label pengiriman, status pengiriman akan ter- update  pada sistem Tokopedia.
+&gt; Informasi lengkap seputar fitur SiCepat  pick up , AWB Otomatis dan Non Tunai silakan kamu klik     di sini   .
+Pengiriman dengan SiCepat
+A. Umum
+Paket pengiriman SiCepat di Tokopedia terdiri dari beberapa pilihan, yaitu Reguler Service, Ekonomi (SiCepat Halu), Kargo (SiCepat Gokil) dan COD (Bayar di Tempat).
+Untuk skema pembulatan berat SiCepat dapat dilihat di table berikut:
+Perhitungan kilogram didasarkan atas berat ditimbang atau berat secara volumetrik (diambil yang terberat). Rumus penghitungan volumetrik adalah (Panjang x Lebar x Tinggi) / 6000. Misalnya, suatu paket memiliki volume 50 cm x 50 cm x 50 cm. Maka perhitungan beratnya adalah 50 cm x 50 cm x 50 cm dibagi 6.000 = 20.83 Kg, dibulatkan menjadi 21 Kg.
+SiCepat hanya akan mengangkut dokumen atau barang dengan kebijakan yang berlaku di SiCepat.
+SiCepat berhak untuk menolak atau menerima dokumen transportasi atau item tertentu dari penjual, sesuai dengan ketentuan yang ada di SiCepat.
+SiCepat berhak membawa dokumen atau barang milik penjual menggunakan penanganan, penyimpanan, dan transportasi yang cocok sesuai kebijakan SiCepat.
+Dokumen atau barang kemasan penjual adalah tanggung jawab penjual, SiCepat tidak bertanggung jawab atas kehilangan atau kerusakan dokumen atau ketidaksempurnaan kemasan barang yang disebabkan oleh penjual. Ketentuan barang yang dapat diklaim adalah barang yang rusak dengan ketentuan bahwa barang yang rusak telah dikemas sesuai dengan standar yang dimiliki oleh SiCepat diantaranya:
+Menggunakan kemasan ( packing ) kayu dengan ketentuan jarak antar satu kayu ke kayu lainnya padat dan kayu tertempel rapat sehingga kuat. Apabila ternyata ditemukan barang yang dikemas dalam kemasan kayu tersebut rusak, namun kemasan kayu tidak rusak, maka SiCepat tidak dapat menerima klaim ganti rugi tersebut;
+Lapisan terluar barang terdapat kardus yang dilapisi kembali oleh plastik dan/atau  bubble wrap  agar tidak tembus air;
+Barang dibungkus kardus dengan ketebalan kardus minimal 2 (dua) lapis;
+Menggunakan  bubble wrap  untuk membungkus barang yang berada di dalam kardus dan melapisi kembali permukaan luar kardus tersebut dengan  bubble wrap ; dan
+Tidak terdapatnya celah ataupun rongga pada sisi kardus sehingga barang yang berada pada dalam kardus tetap berdiri kokoh.
+Penjual bertanggung jawab untuk menyertakan nama dan alamat lengkap tujuan pengiriman, jenis atau isi dokumen atau barang kiriman sehingga pengiriman bisa dilakukan dengan benar.
+SiCepat tidak bertanggung jawab atas keterlambatan, kerugian, kerusakan dan biaya yang timbul dari kelalaian dan kesalahan penjual dalam memenuhi kewajiban-kewajiban di atas.
+Penjual memahami dan menyetujui untuk dapat menggunakan layanan penjemputan barang ( pick up ), maka penjual wajib untuk memenuhi batas minimum pesanan sejumlah 125 (seratus dua puluh lima) pesanan dalam 1 (satu) bulan, ketentuan lebih lanjut dapat dilihat    DI SINI   .
+Dalam hal penjual tidak memenuhi batas minimum pesanan sebagaimana dimaksud angka A.12 di atas, maka penjual tidak dapat menggunakan layanan  pick up  dan harus mengantarkan Barang ke  drop points  atau gerai SiCepat yang dapat dilihat    DI SINI   .
+Penjual baru tidak dapat menggunakan layanan  pick up  hingga penjual memenuhi batas minimum pesanan sebagaimana dimaksud angka A.12 di atas.
+B. Larangan pengiriman
+SiCepat tidak menerima pengiriman barang sebagai berikut:
+Barang berbahaya yang mudah meledak dan terbakar, Alkohol, obat-obatan terlarang, minuman keras, dan/atau barang-barang yang menurut pihak berwajib dilarang diproduksi dan diedarkan;
+Barang perhiasan dan/atau barang berharga lainnya termasuk namun tidak terbatas pada emas, perak dan berlian;
+Binatang dan tumbuhan hidup, termasuk namun tidak terbatas pada hasil olahan binatang dan tumbuhan yang dilindungi, dan bagian-bagian dari hewan langka yang telah mati/diawetkan;
+Barang ilegal termasuk namun tidak terbatas pada organ manusia, barang curian, peralatan dan/atau perlengkapan judi, senjata api, senjata tajam, dan airsoft gun;
+Uang tunai dan surat atau dokumen berharga lainnya termasuk namun tidak terbatas pada cek, surat warkat pos, kartu pos, buku nikah asli, paspor, ijazah asli, dokumen tender, giro, efek, obligasi, saham, sertifikat, tiket pesawat, B/L, L/C, credit card, dan/atau BPKB asli;
+Barang cetakan, rekaman atau barang lainnya yang bertentangan dengan nilai kesusilaan dan dapat mengganggu stabilitas, keamanan dan ketertiban umum;
+Barang berbahaya dan beracun (B3) yang dapat membahayakan kurir saat proses pengiriman termasuk namun tidak terbatas pada bahan kimia yang mudah terbakar atau meledak, sianida, bahan yang menimbulkan iritasi dan beracun pada tubuh manusia, cairan kimia korosif, bahan beracun dan barang berbahaya lainnya;
+Barang-barang yang terbuat dari bahan gelas, keramik, dan pecah belah;
+Benda cair dalam bentuk apapun;
+Makanan dan minuman yang mudah rusak, basi, atau basah;
+Voucher telepon seluler yang tanpa menggunakan fitur Tokopedia Insurance;
+Komoditi yang bernilai tinggi termasuk namun tidak terbatas pada sarang burung walet, bulu binatang, dan/atau sutra yang tidak menggunakan fitur Tokopedia Insurance;
+Barang yang dianggap bernilai sejarah tinggi kecuali pengiriman menggunakan fitur Tokopedia Insurance;
+Jenazah dan/atau abu jenazah;
+Organ tubuh manusia;
+Limbah; dan
+Barang yang dilarang untuk diperjualbelikan berdasarkan kebijakan Situs/Aplikasi Tokopedia yang dapat dilihat    DI SINI   .
+Apabila penjual mengirimkan barang-barang tersebut tanpa sepengetahuan SiCepat, SiCepat dibebaskan dari segala tuntutan ganti rugi, biaya dan tuntutan yang mungkin timbul dari pihak mana pun.
+SiCepat berhak untuk mengambil semua langkah yang diperlukan sesegera SiCepat mengetahui adanya pelanggaran kondisi ini, termasuk untuk menjalankan hak-hak yang diatur dalam undang-undang perlindungan konsumen.
+C. Inspeksi
+SiCepat berhak tetapi tidak berkewajiban untuk memeriksa barang atau dokumen yang dikirim oleh penjual untuk memastikan bahwa pengiriman dokumen atau barang benar-benar memenuhi syarat untuk diangkut ke alamat tujuan pada ketentuan prosedur operasi standar dan metode penanganan SiCepat.
+SiCepat dalam melaksanakan hak-hak mereka tidak menjamin atau menyatakan bahwa seluruh pengiriman layak untuk transportasi.
+SiCepat tidak bertanggung jawab atas isi dari kiriman yang tidak cocok dengan deskripsi yang diberikan penjual kepada SiCepat.
+D. Jaminan Kepemilikan
+Penjual dengan ini menjamin bahwa yang bersangkutan adalah pemilik yang sah dan berhak atas penyerahan dokumen atau barang yang akan disampaikan oleh SiCepat dan telah setuju untuk terikat dengan syarat dan kondisi.
+Penjual menyatakan SiCepat dibebaskan dari tuntutan pihak manapun dan dari semua biaya dan kerusakan atau biaya lainnya dalam hal pelanggaran jaminan ini.
+SiCepat hanya bertanggung jawab untuk membayar kerugian yang diderita sebagai akibat dari kerusakan atau kerugian pengiriman dokumen atau barang yang terjadi ketika barang atau dokumen masih di bawah kontrol dari SiCepat, dengan catatan hanya jika kerusakan tersebut semata-mata karena kelalaian SiCepat.
+SiCepat tidak bertanggung jawab atas kerusakan dan kerugian, termasuk dan tidak terbatas pada kerugian komersial, kerugian tidak langsung atau keuangan lainnya termasuk kerugian yang terjadi dalam transportasi atau pengiriman yang disebabkan oleh hal-hal yang berada di luar kemampuan kontrol SiCepatatau kompensasi untuk kerusakan yang disebabkan oleh bencana alam atau   Force Majeure .
+Nilai ganti rugi sesuai dengan syarat dan ketentuan SiCepat. Dalam menentukan nilai akuntabilitas SiCepat mempertimbangkan nilai dari dokumen atau penggantian barang pada waktu dan tempat pengiriman, tanpa menghubungkan dengan nilai komersial dan konsekuensi kerugian.
+E. Prosedur Klaim
+SiCepat hanya akan menerima klaim atas kerusakan barang atau status barang diterima namun Pembeli belum memperoleh barang paling lambat 2 (dua) hari setelah barang diterima. Sedangkan untuk barang yang belum sampai, SiCepat hanya akan menerima klaim 14 (empat belas) hari kalender sejak barang diserahterimakan oleh Penjual kepada kurir dan 10 (sepuluh) hari kalender sejak barang berstatus retur. Batas waktu pelaporan dan pengajuan komplain ditentukan berdasarkan kebijakan SiCepat. Selengkapnya dapat dilihat    DI SINI   .
+Jumlah klaim tidak dapat dipertanggungjawabkan dengan jumlah tagihan yang tertera.
+Apabila Pembeli tidak menggunakan asuransi pada saat pengiriman, maka Penjual hanya berhak mendapatkan biaya penggantian sebesar 10 (sepuluh) kali dari biaya pengiriman dengan jumlah maksimal Rp1.000.000,- (satu juta Rupiah) atau seharga nominal barang, dengan pemilihan nominal paling rendah diantara keduanya per transaksi yang menggunakan layanan pengiriman dengan SiCepat.
+Untuk informasi lebih lanjut terkait pengiriman menggunakan SiCepat, kamu dapat menghubungi kontak SiCepat berikut ini:
+Alamat : Medialand Tower Lantai 7, Jalan H. R. Rasuna Said Superblok 2 Kawasan Kuningan Persada, RT.1/RW.6, Desa/Kelurahan Guntur, Kecamatan Setiabudi, Jakarta Selatan, Provinsi DKI Jakarta 12980
+021-3020-5050
+Whatsapp : 0812-9966-6088
+Artikel Terkait
+Cara Menambah Produk Pre Order
+Apa itu BCA Flazz?
+Pesanan Sudah Di-Pick Up Namun Masih Ada Driver yang Datang
+Panduan PDP Official Store
+© 2009 -  2026 , PT Tokopedia

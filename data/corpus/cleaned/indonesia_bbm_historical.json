@@ -1,0 +1,223 @@
+{
+  "scraped_at": "2026-04-26T17:35:16.186225",
+  "source": "pertamina.com",
+  "description": "Historical fuel prices in Indonesia - showing price stability over time",
+  "timeline": [
+    {
+      "date": "2026-04-01",
+      "effective_from": "2026-04-01",
+      "source": "pertamina.com announcement",
+      "fuels": {
+        "pertalite": {
+          "price": 10000,
+          "currency": "IDR"
+        },
+        "pertamax": {
+          "price": 12300,
+          "currency": "IDR"
+        },
+        "pertamax_turbo": {
+          "price": 13100,
+          "currency": "IDR"
+        },
+        "pertamax_green_95": {
+          "price": 12900,
+          "currency": "IDR"
+        },
+        "dexlite": {
+          "price": 14200,
+          "currency": "IDR"
+        },
+        "pertamina_dex": {
+          "price": 14500,
+          "currency": "IDR"
+        },
+        "biosolar": {
+          "price": 6800,
+          "currency": "IDR"
+        }
+      }
+    },
+    {
+      "date": "2026-01-01",
+      "effective_from": "2026-01-01",
+      "source": "pertamina.com announcement",
+      "fuels": {
+        "pertalite": {
+          "price": 10000,
+          "currency": "IDR"
+        },
+        "pertamax": {
+          "price": 12300,
+          "currency": "IDR"
+        },
+        "pertamax_turbo": {
+          "price": 13100,
+          "currency": "IDR"
+        },
+        "pertamax_green_95": {
+          "price": 12900,
+          "currency": "IDR"
+        },
+        "dexlite": {
+          "price": 14200,
+          "currency": "IDR"
+        },
+        "pertamina_dex": {
+          "price": 14500,
+          "currency": "IDR"
+        },
+        "biosolar": {
+          "price": 6800,
+          "currency": "IDR"
+        }
+      }
+    },
+    {
+      "date": "2025-10-31",
+      "effective_from": "2025-11-01",
+      "source": "pertamina.com announcement",
+      "fuels": {
+        "pertalite": {
+          "price": 10000,
+          "currency": "IDR"
+        },
+        "pertamax": {
+          "price": 12600,
+          "currency": "IDR"
+        },
+        "pertamax_turbo": {
+          "price": 13400,
+          "currency": "IDR"
+        },
+        "pertamax_green_95": {
+          "price": 13200,
+          "currency": "IDR"
+        },
+        "dexlite": {
+          "price": 14200,
+          "currency": "IDR"
+        },
+        "pertamina_dex": {
+          "price": 14500,
+          "currency": "IDR"
+        },
+        "biosolar": {
+          "price": 6800,
+          "currency": "IDR"
+        }
+      }
+    },
+    {
+      "date": "2025-08-02",
+      "effective_from": "2025-08-02",
+      "source": "pertamina.com announcement",
+      "fuels": {
+        "pertalite": {
+          "price": 10000,
+          "currency": "IDR"
+        },
+        "pertamax": {
+          "price": 12600,
+          "currency": "IDR"
+        },
+        "pertamax_turbo": {
+          "price": 14400,
+          "currency": "IDR"
+        },
+        "pertamax_green_95": {
+          "price": 13900,
+          "currency": "IDR"
+        },
+        "dexlite": {
+          "price": 14550,
+          "currency": "IDR"
+        },
+        "pertamina_dex": {
+          "price": 14650,
+          "currency": "IDR"
+        },
+        "biosolar": {
+          "price": 6800,
+          "currency": "IDR"
+        }
+      }
+    },
+    {
+      "date": "2025-03-01",
+      "effective_from": "2025-03-01",
+      "source": "pertamina.com announcement",
+      "fuels": {
+        "pertalite": {
+          "price": 10000,
+          "currency": "IDR"
+        },
+        "pertamax": {
+          "price": 12950,
+          "currency": "IDR"
+        },
+        "pertamax_turbo": {
+          "price": 14400,
+          "currency": "IDR"
+        },
+        "pertamax_green_95": {
+          "price": 13900,
+          "currency": "IDR"
+        },
+        "dexlite": {
+          "price": 14550,
+          "currency": "IDR"
+        },
+        "pertamina_dex": {
+          "price": 14650,
+          "currency": "IDR"
+        },
+        "biosolar": {
+          "price": 6800,
+          "currency": "IDR"
+        }
+      }
+    },
+    {
+      "date": "2024-10-01",
+      "effective_from": "2024-10-01",
+      "source": "pertamina.com announcement",
+      "fuels": {
+        "pertalite": {
+          "price": 10000,
+          "currency": "IDR"
+        },
+        "pertamax": {
+          "price": 12950,
+          "currency": "IDR"
+        },
+        "pertamax_turbo": {
+          "price": 14400,
+          "currency": "IDR"
+        },
+        "pertamax_green_95": {
+          "price": 13900,
+          "currency": "IDR"
+        },
+        "dexlite": {
+          "price": 14550,
+          "currency": "IDR"
+        },
+        "pertamina_dex": {
+          "price": 14650,
+          "currency": "IDR"
+        },
+        "biosolar": {
+          "price": 6800,
+          "currency": "IDR"
+        }
+      }
+    }
+  ],
+  "summary": {
+    "total_periods": 6,
+    "oldest_date": "2024-10-01",
+    "newest_date": "2026-04-01",
+    "price_stability": "Indonesia has maintained subsidized fuel prices (Pertalite, Biosolar) unchanged since 2024"
+  }
+}

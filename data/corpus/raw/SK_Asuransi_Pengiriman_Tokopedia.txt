@@ -1,0 +1,129 @@
+Bagaimana Layanan Asuransi Pengiriman di Tokopedia Bekerja? | Tokopedia Care
+Website tokopedia memerlukan javascript untuk dapat ditampilkan.
+Pengiriman
+Lihat Semua Topik
+Pengiriman
+Informasi Kurir &amp; Ongkos Kirim
+Alamat Pengiriman
+Kendala dalam Pengiriman
+Fitur Pengiriman
+Asuransi Pengiriman
+Resi &amp; Online Booking
+Bagaimana Layanan Asuransi Pengiriman di Tokopedia Bekerja?
+Toppers, Tokopedia telah bekerja sama dengan PT. Panasonic Insurance Service Indonesia dalam menyediakan layanan Asuransi Pengiriman dari PT Asuransi Tokio Marine Indonesia untuk melindungi transaksi yang kamu lakukan. Segala transaksi yang menggunakan layanan ini mencakup pada proses pengiriman (pengiriman awal ( Shipment ), retur ( Return ), dan pengiriman kembali ( Re-shipment ). Pengiriman  return  dan  re-shipment  berlaku apabila barang yang diterima pembeli tidak sesuai.
+Kendala yang terjadi pada proses pengiriman yang dimaksud seperti:
+Barang hilang keseluruhan.
+Barang hilang/rusak sebagian.
+Barang rusak secara keseluruhan maupun sebagian.
+Berikut adalah tampilan pilihan asuransi, saat Toppers sebagai Penjual ingin menggunakan asuransi pada produk yang dijual.
+S&amp;K
+FAQ
+Simulasi Transaksi
+Syarat dan Ketentuan Asuransi Pengiriman
+Syarat dan Ketentuan Asuransi Pengiriman merupakan bagian dari Syarat dan Ketentuan Situs/Aplikasi Tokopedia. Penggunaan layanan Asuransi Pengiriman tunduk pada Syarat dan Ketentuan Situs/Aplikasi, Kebijakan Privasi, serta Syarat dan Ketentuan yang tertulis dibawah ini. Pengguna disarankan membaca dengan seksama karena dapat berdampak kepada hak dan kewajiban pengguna secara hukum.
+Dengan mendaftar dan/atau menggunakan layanan Asuransi Pengiriman, maka Pengguna dianggap telah membaca, mengerti, memahami dan menyetujui semua isi dalam Syarat dan Ketentuan. Syarat dan Ketentuan ini merupakan bentuk kesepakatan yang dituangkan dalam sebuah perjanjian yang sah antara Pengguna dengan PT Tokopedia. Jika Pengguna tidak menyetujui salah satu, sebagian, atau seluruh isi Syarat dan Ketentuan, maka pengguna tidak diperkenankan menggunakan layanan di   www.tokopedia.com  .
+A. Definisi
+Tokopedia  adalah PT Tokopedia dan seluruh afiliasi atau anak perusahaannya, suatu perseroan terbatas yang menjalankan kegiatan usaha jasa web portal   www.tokopedia.com  , yakni situs pencarian toko dan Barang yang dijual oleh penjual terdaftar.
+Situs/Aplikasi  adalah situs   www.tokopedia.com   milik Tokopedia yang dapat diakses melalui desktop site dan/atau aplikasi yang berbasis Android atau iOS.
+Pembeli  adalah Pengguna terdaftar yang melakukan permintaan atas barang yang dijual oleh Penjual di Situs/Aplikasi.
+Penjual  adalah Pengguna terdaftar yang melakukan tindakan buka toko dan/atau melakukan penawaran atas suatu barang melalui Situs/Aplikasi.
+Pengguna  adalah pihak yang terdaftar dan/atau menggunakan Situs/Aplikasi dan dalam hal ini yang menggunakan layanan Asuransi Pengiriman.
+Asuransi   Pengiriman  adalah layanan asuransi yang disediakan oleh Partner untuk mengajukan Klaim dalam hal terdapat kendala pengiriman barang di Situs/Aplikasi.
+COD (Bayar Di Tempat)  adalah fitur pada Situs/Aplikasi yang memberikan kemudahan bagi Pembeli untuk melakukan pembayaran secara tunai melalui Mitra Kurir.
+Partner  adalah PT Panasonic Insurance Service Indonesia yang bekerja sama dengan Partner Asuransi untuk menyediakan produk Asuransi Pengiriman melalui Situs/Aplikasi.
+Partner Asuransi  adalah PT Asuransi Tokio Marine Indonesia yang bertindak sebagai penanggung yang akan memberikan penggantian Klaim kepada Pengguna.
+Partner Logistik  adalah pihak ketiga yang merupakan penyedia jasa layanan pengiriman barang yang bekerja sama dengan Tokopedia sebagaimana dapat dilihat    DI SINI   .
+Pusat Resolusi  adalah fitur yang disediakan oleh Tokopedia untuk memfasilitasi penyelesaian masalah transaksi antara Pembeli dan Penjual.
+Komplain  adalah laporan dari Pembeli atas kendala pengiriman barang pada Situs/Aplikasi.
+Premi  adalah sejumlah biaya tertentu yang ditetapkan oleh Partner Asuransi dan dibayar oleh Pengguna untuk membeli Asuransi Pengiriman.
+Klaim  adalah tuntutan ganti kerugian yang diajukan oleh Pengguna kepada Partner Asuransi melalui Tokopedia sebagai akibat terjadinya risiko-risiko yang dipertanggungkan berdasarkan ketentuan Asuransi Pengiriman.
+Ketentuan Situs  adalah Syarat dan Ketentuan Situs/Aplikasi, Kebijakan Privasi, Syarat dan Ketentuan ini dan setiap Syarat dan Ketentuan lain yang dapat berlaku untuk atau sehubungan dengan penggunaan Situs/Aplikasi dan seluruh fitur yang terdapat di dalamnya.
+Syarat dan Ketentuan  adalah syarat dan ketentuan Asuransi Pengiriman.
+B. Umum
+Asuransi Pengiriman yang melindungi barang bukan lagi berasal dari masing-masing Partner Logistik pilihan pembeli, melainkan tanggung jawab sepenuhnya dari Partner Asuransi.
+Komplain terkait pesanan yang berkendala rusak, status pesanan tiba/delivered namun barang tidak diterima atau tidak sesuai dapat diajukan maksimal 2x24 jam sejak status pesanan tiba/delivered, namun Komplain tidak dapat diajukan apabila status pesanan telah berpindah ke Pesanan Selesai sebagaimana diatur pada   Ketentuan Situs huruf C Pembelian Poin 23  .
+Pembeli memahami dan menyetujui bahwa Pembeli dapat memilih menggunakan Asuransi Pengiriman saat melakuakn transaksi, dengan premi yang harus ditanggung dan dibayarkan oleh pembeli sebesar:
+0,60% (nol koma enam puluh persen)  dari harga Barang untuk harga Barang dengan total harga  maksimum Rp100.000.000,- (seratus juta rupiah)  dengan uang pertanggungan  maksimal senilai Rp100.000.000,-  (seratus juta rupiah) ; atau
+Mulai tanggal  19 Maret 2024 ,  untuk harga Barang dengan total harga  minimum Rp100.000.001,- (seratus juta satu rupiah)  akan dikenakan premi  0,75% (nol koma tujuh puluh lima persen)  dari harga Barang dengan uang pertanggungan  maksimal senilai Rp300.000.000,-  (tiga ratus juta rupiah) .
+Pembeli memahami dan menyetujui bahwa Asuransi Pengiriman akan mulai aktif sejak Penjual menyerahkan Barang kepada kurir, oleh sebab itu Premi yang sudah dibayarkan tidak dapat dikembalikan (refund) setelah Asuransi Pengiriman aktif.
+Asuransi Pengiriman merupakan tanggung jawab Partner Asuransi melalui Tokopedia, sehingga Penjual tidak perlu membayarkan premi kepada Partner Logistik sehingga penjual tidak akan mendapatkan jumlah premi asuransi yang tertera ketika transaksi telah selesai.
+Pengguna memahami dan menyetujui bahwa Partner Asuransi berhak untuk membatalkan pengajuan Klaim Asuransi Pengiriman apabila Pengguna terindikasi dan/atau terbukti melakukan tindakan penipuan dan/atau manipulasi data yang diberikan pada saat pengajuan Klaim.
+Adapun beberapa kondisi yang membuat Asuransi Pengiriman tidak berlaku:
+Asuransi Pengiriman tidak berlaku apabila Pengguna melakukan pengiriman dan atau pengembalian barang dengan beberapa resi terpisah untuk 1 (satu)  invoice .
+Asuransi Pengiriman tidak berlaku apabila pengiriman awal barang menggunakan kurir  instant/same day  (sistem pick up Gojek dan Grab) yang dipesan secara pribadi atau manual dan tidak tercatat di sistem Tokopedia.
+Asuransi Pengiriman tidak menjamin atau tidak berlaku apabila keterangan barang pada  invoice  tidak sesuai dengan barang sebenarnya atau barang aslinya.
+Asuransi Pengiriman tidak berlaku untuk makanan, minuman, dan/atau obat-obatan yang tidak terdaftar dalam BPOM (Badan Pengawas Obat dan Makanan).
+Asuransi pengiriman tidak berlaku jika sudah ada penggantian dari kurir, sehingga proses penggantian tidak dilakukan 2 kali.
+Asuransi pengiriman tidak berlaku jika barang tersebut dilarang diperjual belikan pada situs Tokopedia sesuai   Ketentuan Situs pada huruf J Jenis Barang dan Jasa  .
+Tokopedia berwenang untuk melakukan: (i) pembatasan penggunaan layanan Asuransi Pengiriman; (ii) penahanan dana; (iii) penutupan akun Pengguna tanpa pemberitahuan sebelumnya untuk sementara atau untuk selamanya; dan/atau (iv) tindakan lain sebagaimana diperlukan, dalam hal terdapat dugaan dan/atau terdapat tindakan Pengguna yang terindikasi melakukan kecurangan dan/atau tindakan lain yang melanggar ketentuan Situs/Aplikasi dan/atau ketentuan hukum yang berlaku di wilayah negara Republik Indonesia.
+Apabila Pengguna melakukan pembayaran dengan metode  split payment , di mana terdapat pembayaran barang yang dilakukan di luar Situs/Aplikasi Tokopedia, maka Pengguna hanya dapat melakukan penggantian Klaim senilai harga barang yang dibayarkan melalui Situs/Aplikasi.
+Apabila Pengguna memiliki perselisihan sehubungan dengan penggunaan layanan Asuransi Pengiriman, Pengguna dengan ini melepaskan dan membebaskan Tokopedia (termasuk direktur, pejabat, karyawan, dan afiliasi Tokopedia) dari setiap atau seluruh kerugian, tanggungjawab, kerusakan, kehilangan, pengeluaran dan biaya, yang timbul dari atau dengan cara apapun berhubungan dengan Klaim atau gugatan terkait dengan sengketa tersebut. Dengan demikian, sejauh diperkenankan berdasarkan peraturan perundang-undangan yang berlaku, Pengguna dengan ini melepaskan segala perlindungan hukum yang akan membatasi cakupan ketentuan pelepasan ini.
+C. Klaim Asuransi Pengiriman
+Pengguna memahami dan menyetujui Klaim hanya dapat dilakukan setelah Premi Asuransi Pengiriman dibayarkan.
+Khusus untuk pembelian dengan metode pembayaran COD, maka berlaku ketentuan Klaim sebagai berikut:
+Untuk kendala pesanan hilang atau tidak sampai tidak dapat diajukan Klaim jika Pembeli belum membayar Premi.
+Untuk kendala pesanan rusak, status pesanan tiba/delivered namun barang tidak diterima, atau pesanan tidak sesuai, hanya dapat diajukan Klaim jika Pembeli sudah membayarkan Premi.
+Batas waktu Komplain awal ke Pusat Resolusi untuk tujuan pengajuan Klaim ditentukan oleh kendala yang dialami oleh Pembeli, dengan ketentuan sebagai berikut:
+Batas waktu Komplain atas kendala pesanan hilang atau tidak sampai  bergantung pada kebijakan masing-masing Partner Logistik. Pastikan laporan yang dilakukan masih dalam batas waktu pelaporan ke Partner Logistik sejak estimasi waktu tiba berdasarkan keterangan di Situs/Aplikasi (paket seharusnya terkirim), ketentuan lebih lanjut mengenai batas waktu pelaporan dapat dilihat   DI SINI  .
+Batas waktu Komplain atas kendala pesanan rusak, status pesanan tiba/delivered namun barang tidak diterima, atau pesanan tidak sesuai  maksimal 2 x 24 jam sejak  status pesanan tiba/ delivered.
+Asuransi pengiriman tidak berlaku jika Penjual atau Pembeli mengajukan Komplain melebihi ketentuan batas waktu pelaporan dari masing-masing kendala.
+Pembeli memahami dan menyetujui sebelum Klaim diajukan kepada Partner Asuransi, atas Komplain kendala pesanan yang hilang, status pesanan tiba/delivered namun barang tidak diterima Pembeli, atau pesanan rusak akan terlebih dahulu dilakukan investigasi sesuai dengan kendala yang dialami Pembeli, ketentuan lebih lanjut mengenai investigasi dapat dilihat   DI SINI  .
+Pengguna memahami dan menyetujui, penanggungan atas Komplain barang yang tidak sesuai adalah berupa pembebasan biaya  return  (Pengembalian barang ke pihak Penjual) dan/atau  re-shipment  (Pengiriman ulang kembali dari pihak Penjual ke Pembeli), Pengguna tunduk pada ketentuan pembebasan biaya return dan/atau  re-shipment  yang dapat dilihat   DI SINI  .
+Apabila  investigasi sudah dilakukan dan seluruh bukti dan dokumen yang dibutuhkan untuk Klaim sudah lengkap, maka Pusat Resolusi akan memberikan link form untuk pengajuan Klaim kepada Partner Asuransi yang akan diisi oleh Pembeli atau Penjual.
+Partner Asuransi akan melakukan peninjauan atas Klaim dan memberikan konfirmasi diterima atau tidaknya Klaim maksimal 1 x 24 jam pada hari kerja setelah Klaim diajukan. Kecuali jika Partner Asuransi membutuhkan dokumen tambahan dan/atau investigasi lebih lanjut.
+Uang pertanggungan atas Klaim akan dikirimkan melalui saldo refund selambat-lambatnya 14 hari kerja untuk metode pembayaran kartu kredit atau cicilan tanpa kartu kredit, atau 2 hari kerja untuk metode pembayaran selain kartu kredit atau cicilan tanpa kartu kredit, setelah konfirmasi disetujuinya Klaim dari Partner Asuransi. Kecuali jika Partner Asuransi membutuhkan dokumen tambahan dan/atau investigasi lebih lanjut.
+Pengguna memahami dan menyetujui keputusan untuk diterima atau tidaknya Klaim merupakan kewenangan penuh Partner Asuransi.
+Uang pertanggungan yang akan diberikan oleh Partner Asuransi adalah senilai invoice yang terdiri atas harga barang, ongkos kirim, dan ongkos retur, atau senilai dengan maksimum uang pertanggungan sebagaimana dimaksud poin B.3.
+Dalam hal terdapat Klaim yang tidak dapat diproses akibat kurir tidak dapat melakukan investigasi karena sudah melewati batas pelaporan kurir, maka untuk transaksi dengan status terakhir retur ke Penjual akan dibatalkan, sedangkan transaksi dengan status terakhir masih dalam pengantaran akan dianggap selesai.
+D. Penggunaan Data
+Dengan menggunakan Asuransi Pengiriman pada Situs/Aplikasi, maka Pengguna memberikan hak kepada Tokopedia untuk mengungkapkan informasi dan/atau data pribadi terkait penggunaan layanan Asuransi Pengiriman pada Situs/Aplikasi kepada Partner Asuransi serta melakukan penyimpanan atas informasi dan/atau data pribadi milik Pengguna.
+Pengguna menyetujui dan secara sukarela memberikan wewenang serta kuasa penuh kepada Tokopedia untuk memberikan, meneruskan, mentransfer, mengungkapkan informasi, data pribadi dan/atau data relevan berupa: Kartu Tanda Penduduk, invoice pembelian, dan bukti fisik. Data tersebut akan digunakan sehubungan dengan pengajuan Klaim Asuransi Pengiriman yang diajukan oleh Pengguna kepada Partner Asuransi.
+Tokopedia tidak akan memberikan, menyebarluaskan dan/atau membuat data Pembeli dapat diakses secara publik tanpa adanya persetujuan terlebih dahulu, kecuali dalam keadaan yang diharuskan secara hukum sesuai dengan peraturan perundang-undangan yang berlaku.
+Penggunaan data sehubungan dengan layanan Asuransi Pengiriman tunduk pada   Kebijakan Privasi Tokopedia  .
+Pertanyaan-pertanyaan seputar layanan Asuransi
+Q: Apa itu Layanan Asuransi Pengiriman oleh Tokio Marine?
+Layanan Asuransi yang disediakan untuk melindungi barang yang dibeli pengguna pada situs Tokopedia, dari kemungkinan kendala yang terjadi pada proses pengiriman menggunakan layanan ekspedisi yang tersedia di Tokopedia, seperti kehilangan maupun kerusakan barang. Dalam hal ini, Tokopedia bekerja sama dengan  PT Asuransi Tokio Marine Indonesia  sebagai pihak penjamin.
+Q: Apa keuntungan menggunakan Asuransi Pengiriman?
+Biaya asuransi yang lebih murah, 0.6% (nol koma enam persen) atau 0.75% (nol koma tujuh puluh lima persen) dari total harga barang ditambah ongkos kirim dan berlaku pembulatan ke atas.
+PT Asuransi Tokio Marine dapat melakukan penggantian atas barang rusak, cacat, ataupun hilang (sesuai dengan syarat &amp; ketentuan asuransi) hingga pertanggungan maksimum sebesar Rp100.000.000 atau R300.000.000 sesuai dengan total harga pembelian.
+Asuransi sudah termasuk layanan retur gratis ( free return ) untuk proses pengiriman awal ( shipment ), pengembalian barang ( return ), dan pengiriman kembali ( re-shipment )
+Q: Apa bedanya dengan asuransi dari ekspedisi?
+Untuk kenyamanan dan standardisasi bagi pengguna Tokopedia, Asuransi Pengiriman oleh Tokio Marine hadir dengan premi yang seragam yaitu:
+0,60% (Nol koma enam puluh persen) untuk total harga barang maksimum Rp100.000.000,- (seratus juta rupiah). Jumlah pertanggungan adalah sampai dengan Rp100.000.000 (seratus juta rupiah) per transaksi dan;
+0,75% (nol koma tujuh puluh lima persen) untuk total harga barang mulai dari Rp100.000.001,- (seratus juta satu rupiah). Jumlah pertangguan adalah sampai dengan R300.000.000,- (tiga ratus juta rupiah).
+Proses klaim juga lebih mudah karena dibantu oleh Tokopedia agar dapat di proses oleh PT Asuransi Tokio Marine Indonesia.
+Q: Apakah syarat untuk menggunakan layanan asuransi pengiriman sama dengan syarat asuransi dari ekspedisi sebelumnya?
+Tidak ada syarat dan ketentuan khusus, setiap transaksi dapat menggunakan asuransi pengiriman, kecuali  makanan &amp; minuman , harus menggunakan layanan  same day  dan atau  instant .
+Q: Bagaimana cara saya mengajukan klaim asuransi untuk transaksi yang berkendala akibat proses pengiriman?
+Bila pada proses pengiriman terjadi kendala (hilang atau rusak) maka barang kamu tersebut dapat dilaporkan melalui    Pusat Resolusi    agar bisa dibantu klaim asuransinya.
+Namun apabila kamu tidak menggunakan asuransi pengiriman oleh Tokio Marine dan barang yang kamu beli mengalami kendala (hilang atau rusak) maka klaim tidak dapat diajukan kepada  PT Asuransi Tokio Marine Indonesia  dan dapat dilakukan  klaim ke ekspedisi yang digunakan  melalui Tokopedia, yang mana apabila pengajuan klaim disetujui oleh pihak ekspedisi maka pergantian akan diberikan sesuai dengan  ketentuan masing-masing ekspedisi  terkait dengan pemilihan nominal yang paling rendah di antara keduanya, di mana nominal tersebut nantinya akan  ditujukan untuk pihak penjua l.
+Q: Berapa lama waktu investigasi apabila terjadi kendala yang menggunakan layanan asuransi pengiriman oleh Tokio Marine?
+Waktu investigasi tergantung dari ketentuan masing-masing pihak kurir. Selengkapnya cek artikel   Layanan Pengajuan Klaim Asuransi Pengiriman  .
+Q: Kendala apa saja yang dapat di- cover  klaim oleh pihak asuransi?
+Kendala yang dapat diajukan klaim yaitu, barang hilang atau rusak secara keseluruhan maupun sebagian dan free ongkos kirim jika pesanan yang diterima tidak sesuai.
+Untuk  barang hilang keseluruhan , yang ter- cover  asuransi adalah senilai harga barang dan ongkos kirim (tidak termasuk dengan biaya asuransi).
+Untuk  barang hilang/ rusak sebagian , yang ter- cover  asuransi adalah sebagian barang yang tidak diterima oleh pembeli dikarenakan barang hilang/ rusak dalam proses pengiriman. Nominal yang dapat dilakukan pergantian adalah seharga barang yang kurang serta ongkos kirim disesuaikan (prorata) dengan berat barang yang hilang (tidak termasuk dengan biaya asuransi). Jika pengiriman awal menggunakan kurir  instant atau same day maka ongkos kirim tidak dapat dikembalikan.
+Untuk  barang rusak secara keseluruhan maupun sebagian , yang ter- cover  asuransi adalah barang yang rusak secara fisik karena pengiriman, bukan rusak fungsi sistem barang.
+Q: Bagaimana cara membatalkan asuransi?
+Perlindungan Asuransi Pengiriman akan aktif pada saat Penjual menyerahkan Barang kepada kurir (sudah terjadi pengiriman). Sehingga, premi yang sudah dibayarkan tidak dapat dikembalikan (refund).
+Apabila kamu tidak ingin menggunakan asuransi , maka kamu dapat menonaktifkan dengan cara unchecklist pada saat checkout. Namun, jika  produk yang kamu beli wajib asuransi  maka tidak dapat dinonaktifkan, hal ini demi keamanan barang yang kamu beli.
+Q: Apa perbedaan Asuransi Pengiriman dan Asuransi Proteksi?
+Asuransi Pengiriman
+Asuransi Pengiriman berlaku pada transaksi Tokopedia yang berkendala saat dalam proses pengiriman dan nantinya pihak Tokopedia yang akan bantu investigasi Klaim Asuransinya.
+Asuransi Proteksi
+Program Perlindungan yang dibuat khusus untuk Pengguna Tokopedia, berfungsi untuk melindungi dari kerusakan akibat kejadian tidak sengaja, Terkena/kemasukan cairan, dan Pencurian/Perampokan. Asuransi Proteksi bisa langsung Masuk ke halaman Proteksi.
+Q: Bagaimana jika di  invoice  terdapat keterangan  “Paket ini tidak menggunakan asuransi pihak logistik, penjual tidak perlu bayar asuransi ke kurir” ?
+Hal tersebut berarti yang melindungi barang bukan lagi berasal dari masing-masing kurir ekspedisi pilihan pembeli, melainkan tanggung jawab dari PT. Asuransi Tokio Marine Indonesia melalui Tokopedia sepenuhnya. Karena itu penjual sudah tidak perlu membayar asuransinya ke pihak kurir.
+Simulasi Asuransi Pengiriman Untuk Transaksi Hingga Rp100.000.000
+Catatan:
+* Dibulatkan ke nominal ratusan terdekat.
+** Partner Logistik hanya dapat menggantikan maksimal sebesar Rp1.000.000 (terkecuali GoSend, maks. Rp10.000.000).
+Simulasi Asuransi Pengiriman Untuk Transaksi Di Atas Rp100.000.000
+Catatan:
+* Dibulatkan ke nominal ratusan terdekat.
+Artikel Terkait
+Bagaimana Layanan Pengajuan Klaim Asuransi Pengiriman di Tokopedia?
+Asuransi Pengiriman Tidak Sesuai
+Asuransi Pengiriman Tokopedia Tidak Dapat Digunakan
+Bagaimana Skema Pengembalian Dana Asuransi?
+© 2009 -  2026 , PT Tokopedia

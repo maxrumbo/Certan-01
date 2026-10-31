@@ -1,0 +1,62 @@
+Apa itu Return Packages? | Tokopedia Care
+Website tokopedia memerlukan javascript untuk dapat ditampilkan.
+Bantuan
+Lihat Semua Topik
+Apa itu Return Packages?
+Toppers, berikut panduan dan pertanyan-pertanyaan seputar Return Packages.
+Panduan
+FAQ
+Cara Konfirmasi Transaksi Retur Ke Penjual
+Secara bertahap Tokopedia akan menyediakan fitur untuk melacak dan mengkonfirmasi paket yang retur ke Penjual. Fitur ini akan berlaku untuk pengiriman menggunakan kurir tertentu di Tokopedia secara bertahap. Apabila kurir gagal mengirimkan pesanan kepada Pembeli, maka pesanan akan dikembalikan kepada Penjual.
+Berikut cara mengkonfirmasi pesanan yang dikembalikan:
+Saat pesanan akan dikembalikan dan sudah berhasil dikembalikan, Penjual akan mendapatkan notifikasi.
+Pesanan yang dikembalikan juga akan muncul di halaman pengaturan pesanan. Untuk memberikan konfirmasi, Penjual bisa klik tombol  Tanggapi .
+Selanjutnya, klik tombol  Ya, Sudah Terima  bila barang sudah sampai. Atau Klik tombol  Bantuan  bila barang belum diterima dan butuh bantuan dari Tim Tokopedia Care.
+Penjual juga dapat melacak pengembalian barang dengan klik tombol  Lacak  pada halaman detail pesanan.
+Pertanyaan Seputar Return Packages Tokopedia
+Q: Kenapa paket saya dikembalikan kepada seller?
+Ada dua kemungkinan mengapa sebuah paket dikembalikan kepada seller:
+Pesanan belum sampai dan ternyata setelah investigasi dilakukan retur oleh 3PL. Hal ini bisa dikarenakan  partner  logistik sudah melakukan percobaan pengiriman 2 kali ke tempat Pembeli tetapi tidak ada pihak yang bisa menerima dan/atau pihak Pembeli tidak bisa dihubungi untuk ditanyakan lebih lanjut mengenai paket akan dikirimkan kemana.
+Barang yang diterima oleh pembeli dalam kondisi rusak sehingga pembeli  complain  ke Tokopedia. Setelah dilakukan investigasi, ternyata kerusakan bukan dikarenakan oleh proses pengiriman, sehingga diputuskan untuk dilakukan retur ke penjual agar penjual bisa mengirimkan ulang barang baru.
+Q: Seperti apa proses pengiriman paket kembali ke seller?
+Setelah mendapatkan kepastian bahwa sebuah paket akan diretur dan apabila  partner  logistik sudah mengetahui alamat retur dari pihak Tokopedia, maka pihak logistik membutuhkan waktu untuk melakukan pembuatan label pengiriman baru, di mana ini bisa memakan waktu  2 - 3 hari kerja . Setelah itu, barang akan dikirimkan kembali kepada Penjual.
+Q: Berapa lama waktu yang dibutuhkan untuk paket retur sampai ke tempat seller?
+Batas waktu lama pengiriman paket retur sesuai dengan batas waktu lama pengiriman dari alamat Pembeli ke Penjual. Misalnya, lokasi Penjual adalah di Jakarta dan lokasi pembeli adalah di Solo. Maka batas waktu lama pengiriman paket retur sampai ke penjual menggunakan batas waktu lama pengiriman dari Solo ke Jakarta; di mana batas waktu ini bisa berbeda-beda dari masing-masing jasa pengiriman. Informasi dapat diakses pada website masing-masing partner logistik.
+Adapun SLA pengiriman paket retur dimulai dari sudah ada konfirmasi atau kejelasan mengenai alamat retur dan proses pembuatan label pengiriman baru.
+Terkecuali Pos Indonesia, Pos Indonesia akan melakukan penurunan  service  pengiriman. Misalnya pengiriman dari Penjual ke Pembeli menggunakan  service  pengiriman Reguler, maka saat paket diretur, Pos Indonesia akan mengirimkan balik ke Penjual dengan menggunakan  service  pengiriman Ekonomi
+Q: Apakah ada biaya tambahan untuk paket retur? Apabila ada, siapa yang akan membayar biaya pengiriman paket retur ini?
+Tidak ada biaya tambahan terkait dengan aktivitas pengiriman paket retur ke Penjual, kecuali untuk pengiriman retur menggunakan jasa pengiriman Wahana, JNE, REX dan J&amp;T. Mengenai siapa yang menanggung biaya retur tergantung dari alasan retur:
+Apabila dikarenakan oleh barang rusak selama proses pengiriman, maka biaya kirim retur tidak perlu dibayarkan oleh Penjual atau Pembeli karena akan menjadi tanggungan jasa pengiriman.
+Apabila dikarenakan oleh barang tidak sesuai atau dikirim oleh Penjual dalam kondisi tidak baik, maka biaya kirim retur menjadi tanggungan Penjual. [J&amp;T, REX, Wahana, JNE].
+Apabila dikarenakan alamat pembeli tidak ditemukan, nomor pembeli tidak dapat dihubungi, atau penerima tidak ditempat, maka biaya retur menjadi tanggungan Pembeli [Wahana].
+Paket sudah diterima di delivery station, namun dikarenakan kesalahan pihak penjual/pembeli paket ingin dikembalikan [JNE].
+Biaya retur akan dibebankan ketika paket diminta untuk proses retur dengan rute origin dan destination di kota yang berbeda [REX].
+Q: Apabila sebuah paket sedang dalam proses pengiriman retur kepada seller, tetapi paket tidak kunjung sampai dan sudah melebihi batas waktu pengiriman. Apa yang harus dilakukan oleh Penjual?
+Silakan Penjual mempertanyakan keberadaan paket kepada Tokopedia. Tokopedia memberikan waktu kepada partner logistik selama maksimal  7x24 jam  hari kalender untuk melakukan investigasi keberadaan paket. Apabila melebihi waktu investigasi tersebut tidak ada perkembangan dari partner logistik, maka paket akan dilanjutkan dengan proses klaim sesuai dengan prosedur yang berlaku. Selengkapnya dapat kamu cek di    link    berikut ya.
+Q: Kenapa paket saya di-retur oleh pihak Logistik?
+Pesanan diretur karena kurir mengalami kendala pada saat melakukan pengiriman yang menyebabkan paket tidak berhasil terkirim ke Pembeli. Kendala yang dimaksudkan antara lain Pembeli tidak berada di tempat dan tidak dapat dihubungi, alamat salah/tidak dapat ditemukan.
+Q: Fitur ini berlaku untuk kurir apa saja?
+Untuk saat ini, fitur hanya berlaku untuk pengiriman dengan kurir-kurir berikut:
+JNE (per tanggal 10 April 2023),
+AnterAja (per tanggal 5 Juni 2023),
+SiCepat (per tanggal 5 Februari 2024),
+Kurir Rekomendasi (per tanggal 5 Februari 2024)
+Paxel (per tanggal 14 Mei 2024)
+Ninja Express dan Wahana (per tanggal 20 Mei 2024)
+Untuk kurir lainnya akan diberlakukan secara bertahap.
+Q: Bagaimana Status Pesanan Pembeli setelah Penjual konfirmasi sudah menerima barang atas retur?
+Pesanan akan dibatalkan dan dana akan dikembalikan ke pembeli. Dana yang dikembalikan ke pembeli adalah senilai product (tanpa ongkir).
+Q: Apa yang akan terjadi bila Penjual tidak melakukan konfirmasi dalam waktu 2x24 jam?
+Pesanan akan dibatalkan dan dana akan dikembalikan ke pembeli. Dana yang dikembalikan ke pembeli adalah senilai product (tanpa ongkir).
+Q: Apa yang harus dilakukan oleh Penjual bila barang belum diterima tapi status sudah berhasil terkirim ke Penjual?
+Penjual bisa menghubungi Tokopedia care untuk dilakukan pengecekan lebih lanjut. Hubungi kami melalui Tanya di Pusat Bantuan    di sini  .
+Q: Apakah Penjual bisa mengirimkan kembali paket yang retur/sudah dikembalikan ke Penjual?
+Transaksi yang sudah berhasil dikembalikan ke Penjual, akan dibatalkan secara sistem, sehingga Penjual tidak bisa mengirimkan kembali paket tersebut. Pembeli harus melakukan transaksi ulang apabila ingin tetap membeli barang tersebut.
+Catatan:
+Untuk pengiriman yang belum termasuk dalam sistem retur ini dan layanan pengirimannya drop off, paket akan dikembalikan ke gerai tempat penjual mengirimkan paket. Sehingga jika paketnya di retur penjual bisa mengecek ke gerai tempat melakukan pengirimannya.
+Artikel Terkait
+Daftar Service Center Resmi Proteksi Layar Retak
+Apa itu Komunitas?
+Mobile Legends: Bang Bang
+Tidak Bisa Menggunakan Promo Bank
+© 2009 -  2026 , PT Tokopedia
