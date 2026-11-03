@@ -59,11 +59,18 @@ certan-01/
 │       ├── models.py           # Struktur data Node, Edge, Graph, dan SearchNode
 │       ├── data.py             # Dataset topologi jaringan jalan perkotaan
 │       ├── heuristics.py       # Fungsi heuristik Euclidean berbobot
-│       ├── search.py           # Implementasi algoritma UCS dan A* berbasis heapq
-│       ├── cli.py              # Antarmuka CLI (mode demo, custom, benchmark)
-│       └── visualize.py        # Modul visualisasi rute dan grafik komparasi
+│       ├── search.py           # Implementasi algoritma UCS dan A* berbasis heapq (M1)
+│       ├── solver.py           # Mesin Inferensi Batasan CSP AC-3 & Backtracking MRV (M2)
+│       ├── orchestrator.py     # Orkestrator integrasi alur alokasi M2 -> rute M1
+│       ├── osm_loader.py       # Pemuatan data OpenStreetMap dan koordinat wilayah Toba
+│       ├── chatbot.py          # Asisten percakapan cerdas interaktif terintegrasi
+│       ├── cli.py              # Antarmuka CLI (mode demo, chat, dispatch, benchmark)
+│       └── visualize.py        # Modul visualisasi rute Folium HTML dan grafik komparasi
 ├── tests/
-│   └── test_search.py          # Suite pengujian unit otomatis (34 kasus uji)
+│       ├── test_search.py      # Pengujian algoritma rute UCS dan A* (34 kasus uji)
+│       ├── test_solver.py      # Pengujian inferensi batasan CSP (13 kasus uji)
+│       ├── test_orchestrator.py# Pengujian integrasi pipeline dispatch (11 kasus uji)
+│       └── test_chatbot.py     # Pengujian antarmuka percakapan cerdas (26 kasus uji)
 └── reports/
     ├── benchmark_results.csv   # Data metrik komparasi format tabular
     ├── benchmark_results.md    # Ringkasan metrik komparasi format Markdown
@@ -85,7 +92,7 @@ uv sync
 ```bash
 uv run pytest
 ```
-*Status: 34 passed in 1.18s (100% lulus).*
+*Status: 84 passed (100% lulus).*
 
 ### Menjalankan Simulasi Rute Kurir (CLI)
 * **Mode Demonstrasi Skenario Utama**:
@@ -131,15 +138,45 @@ Pada Milestone 2, sistem diperluas dengan **Mesin Inferensi Batasan (*Constraint
   ```bash
   uv run python scripts/generate_m2_visualizations.py
   ```
-* **Pengujian Unit Otomatis (69 Kasus Uji Otomatis)**:
+* **Pengujian Unit Otomatis (84 Kasus Uji Otomatis)**:
   ```bash
   uv run pytest
   ```
-  *Status: 69 passed (100% lulus).*
+  *Status: 84 passed (100% lulus).*
 
 ---
 
-## 6. Ringkasan Hasil Benchmark Kinerja (Milestone 1)
+## 6. Milestone 3: Basis Pengetahuan Korpus Enterprise & Vector Semantic Search (ChromaDB)
+
+Pada Milestone 3, sistem CERTAN-01 diperluas dengan **Memori Semantik Enterprise (*Vector Knowledge Base*)** menggunakan basis data vektor persisten **ChromaDB** dan dense embeddings **Sentence-Transformers (`all-MiniLM-L6-v2`)**. Basis pengetahuan ini bertindak sebagai landasan otoritatif yang memvalidasi *hard constraints* alokasi armada kurir di Milestone 2 (batas 8 jam kerja, kualifikasi paket bulky, dan regulasi HAZMAT).
+
+### Fitur & Komponen Utama Milestone 3
+- **Kurasi Korpus 28 Dokumen Otoritatif**: Dokumen resmi dari 5 sektor (UU Ketenagakerjaan No. 13/2003, UU Pos No. 38/2009, Permenkominfo No. 4/2021, Regulasi K3, Kontrak Layanan Pos BKN/PPATK, SOP J&T Express, SiCepat, Tokopedia, dan Shopee).
+- **Pipeline Ingestion & Word-Aware Recursive Chunking**: Ekstraksi multi-format (PDF, DOCX, TXT, HTML) dengan pemotongan rekursif ($L_{chunk}=500$, $O_{chunk}=100$) yang menjaga keutuhan proposisi klausul hukum/SOP (menghasilkan **2.721 chunks** pada 12 kategori).
+- **Penyimpanan Vektor Persisten ChromaDB**: Penyimpanan lokal di `data/chroma_db/` berbasis SQLite dan graf HNSW (*Cosine Similarity*), mendukung mode *offline-ready* (`HF_HUB_OFFLINE=1`).
+- **Benchmark Temu Balik & Analisis Anisotropy**: Evaluasi 7 kueri bisnis dengan latensi inferensi rata-rata **23,83 ms**, membuktikan ketangguhan terhadap variasi sinonim kasual serta memformulasikan ambang batas penolakan terkalibrasi ($\tau \ge 0,72$) untuk mengatasi fenomena *Embedding Anisotropy*.
+
+### Panduan Eksekusi Milestone 3
+* **Menjalankan Pengindeksan Korpus & Benchmark Temu Balik**:
+  ```bash
+  uv run python scripts/run_retrieval_benchmark.py
+  ```
+  *Output: Metrik evaluasi tersimpan di `reports/benchmark_m3_retrieval.csv`.*
+
+* **Menghasilkan Plot Visualisasi Resmi Milestone 3**:
+  ```bash
+  uv run python scripts/generate_m3_figures.py
+  ```
+  *Output: 3 gambar 300 DPI di `reports/figures/` (arsitektur 3 lapis, distribusi korpus, dan grafik benchmark).*
+
+* **Pengujian Unit Otomatis Milestone 3**:
+  ```bash
+  uv run pytest tests/test_vector_store.py
+  ```
+
+---
+
+## 7. Ringkasan Hasil Benchmark Kinerja (Milestone 1)
 
 Berikut adalah hasil pengujian komparasi pada 4 skenario rute kurir:
 
@@ -154,16 +191,16 @@ Berikut adalah hasil pengujian komparasi pada 4 skenario rute kurir:
 
 ---
 
-## 7. Anggota Tim dan Pembagian Peran
+## 8. Anggota Tim dan Pembagian Peran
 
 | Nama Mahasiswa | Peran | Tanggung Jawab Utama |
 | :--- | :--- | :--- |
-| **Maxwell Rumahorbo** | Lead Developer & Technical Lead | Setup repositori Astral uv, engine pencarian UCS dan A*, mesin inferensi batasan CSP (AC-3 + Backtracking MRV/LCV), generator visualisasi, dan pengujian unit pytest. |
-| **Rahel Silaban** | AI Architect & Mathematical Formulation | Pemodelan formal triplet $\langle X, D, C \rangle$, formulasi batasan kapasitas dan regulasi jam kerja, perancangan fungsi heuristik Euclidean berbobot, serta pemetaan dataset riil e-commerce. |
-| **Arya Sinambela** | Business Domain & Lead Laporan | Analisis domain bisnis dan regulasi ketenagakerjaan, verifikasi kepatuhan batasan operasional, QA pengujian batas (*borderline/over-capacity*), dan kompilasi laporan akhir. |
+| **Maxwell Rumahorbo** | Lead Developer & Technical Lead | Setup repositori Astral uv, engine pencarian UCS dan A*, mesin inferensi batasan CSP (AC-3 + Backtracking MRV/LCV), pipeline ingestion dan vector store ChromaDB M3, generator visualisasi, dan pengujian unit pytest. |
+| **Rahel Silaban** | AI Architect & Mathematical Formulation | Pemodelan formal triplet $\langle X, D, C \rangle$, formulasi batasan kapasitas dan regulasi jam kerja, perancangan fungsi heuristik Euclidean berbobot, teori embedding dense & analisis anisotropi, serta pemetaan dataset riil e-commerce. |
+| **Arya Sinambela** | Business Domain & Lead Laporan | Analisis domain bisnis dan regulasi ketenagakerjaan, kurasi korpus 28 dokumen resmi, verifikasi kepatuhan batasan operasional, QA pengujian batas (*borderline/over-capacity*), dan kompilasi laporan akhir. |
 
 ---
 
-## 7. Lisensi
+## 9. Lisensi
 
 Proyek ini didistribusikan di bawah lisensi [MIT License](LICENSE).

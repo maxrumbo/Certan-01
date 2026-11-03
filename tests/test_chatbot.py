@@ -227,8 +227,7 @@ def test_regional_route_solving(bot: CourierChatbot):
     )
     assert res["astar_fuel"].found is True
     assert res["astar_fuel"].total_distance > 5.0
-    assert "maps/dir" in res["gmaps_url"]
-    assert "del" in res["gmaps_url"].lower() or "balige" in res["gmaps_url"].lower()
+    assert res["map_path"] is not None
 
 
 def test_disambiguate_del_destination(bot: CourierChatbot):
@@ -253,8 +252,8 @@ def test_disambiguate_del_destination(bot: CourierChatbot):
     assert "RUTE PENGIRIMAN PAKET" in resp2
     assert "Mixue Balige" in resp2
     assert "Institut Teknologi Del" in resp2
-    assert "origin=Mixue+Balige" in resp2
-    assert "destination=Institut+Teknologi+Del" in resp2
+    assert "PETA RUTE INTERAKTIF" in resp2
+    assert ".html" in resp2
 
 
 def test_disambiguate_del_to_sma_unggul_del(bot: CourierChatbot):
@@ -266,11 +265,10 @@ def test_disambiguate_del_to_sma_unggul_del(bot: CourierChatbot):
     assert "SMA Unggul Del" in resp
 
 
-def test_gmaps_url_place_names(bot: CourierChatbot):
+def test_interactive_folium_map_generated(bot: CourierChatbot):
     res = bot.solve_route("motor_matik_kurir", "mixue_balige", "it_del_sitoluama")
-    assert "maps/dir" in res["gmaps_url"]
-    assert "origin=Mixue+Balige" in res["gmaps_url"]
-    assert "destination=Institut+Teknologi+Del" in res["gmaps_url"]
+    assert res["map_path"] is not None
+    assert "laguboti_rute" in str(res["map_path"])
 
 
 def test_chatbot_search_command(bot: CourierChatbot):
@@ -300,5 +298,42 @@ def test_chatbot_popular_poi_mixue_and_indomaret(bot: CourierChatbot):
     # Test pencarian dengan 'cari mixue'
     resp_search = bot.handle_message("cari mixue")
     assert "Mixue Balige" in resp_search
+
+
+# ---------------------------------------------------------------------------
+# Test 6: Integrasi Fitur Dispatch & Alokasi Armada (M2 -> M1)
+# ---------------------------------------------------------------------------
+
+def test_chatbot_dispatch_command(bot: CourierChatbot):
+    resp = bot.handle_message("alokasi")
+    assert "RENCANA DISPATCH & ALOKASI ARMADA" in resp
+    assert "100% FEASIBLE" in resp
+    assert "BBM" in resp
+    assert bot.state.last_dispatch_plan is not None
+    assert bot.state.last_dispatch_plan.is_feasible is True
+
+
+def test_chatbot_my_packages_command(bot: CourierChatbot):
+    bot.state.vehicle = "motor_matik_kurir"
+    resp = bot.handle_message("paket saya")
+    assert "DAFTAR TUGAS PAKET UNTUK KENDARAANMU" in resp
+    assert "Motor Matik" in resp
+    assert "Beban Angkut" in resp
+
+
+def test_chatbot_direct_package_routing(bot: CourierChatbot):
+    resp = bot.handle_message("antar P01")
+    assert "Navigasi Langsung untuk Paket" in resp
+    assert "P01" in resp
+    assert "ROUTE HEMAT BBM" in resp
+    assert "Rp" in resp
+
+
+def test_chatbot_help_includes_dispatch(bot: CourierChatbot):
+    resp = bot.handle_message("bantuan")
+    assert "alokasi" in resp
+    assert "paket saya" in resp
+    assert "antar <id_paket>" in resp
+
 
 

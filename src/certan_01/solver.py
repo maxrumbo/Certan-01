@@ -56,14 +56,18 @@ class Package:
 
     Attributes:
         package_id         : Identifikasi unik paket (misal: "P1", "P_EXP_05").
-        destination_node   : Simpul lokasi tujuan pada graf jaringan jalan.
+        destination_node   : Lokasi tujuan paket. Mendukung dua format:
+                             - str  : Landmark key (misal: "it_del_sitoluama")
+                               → akan di-resolve ke koordinat via LANDMARKS dict.
+                             - tuple: Koordinat GPS langsung (lat, lon) sebagai float.
+                               → format utama yang direkomendasikan (lebih akurat).
         weight_kg          : Berat paket dalam kilogram.
         is_bulky           : True jika paket berukuran besar (hanya bisa diangkut roda empat).
         estimated_time_hrs : Estimasi waktu tempuh & antar kurir untuk paket ini (jam).
     """
 
     package_id: str
-    destination_node: str
+    destination_node: "str | tuple[float, float]"
     weight_kg: float
     is_bulky: bool = False
     estimated_time_hrs: float = 0.5

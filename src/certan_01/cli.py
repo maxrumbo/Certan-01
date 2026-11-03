@@ -441,8 +441,9 @@ def run_laguboti_mode() -> None:
         print(f"  Jaringan   : {graph_fuel.summary()}")
 
         # ── Heuristik ────────────────────────────────────────────
+        min_cost = graph_fuel.min_cost_per_km
         def heuristic(node, g=goal):
-            return euclidean_heuristic(node, g)
+            return euclidean_heuristic(node, g, c_min_per_km=min_cost)
 
         # ── Pencarian ────────────────────────────────────────────
         # Rute 1: Paling Hemat BBM — A* (bobot biaya bensin)
@@ -466,9 +467,9 @@ def run_laguboti_mode() -> None:
 
         # ── Tampilan Perbandingan ────────────────────────────────
         _print_separator("=")
-        print("\n  ┌─────────────────────────────────────────────────────┐")
-        print("  │         PERBANDINGAN STRATEGI RUTE KURIR            │")
-        print("  └─────────────────────────────────────────────────────┘")
+        print("\n  +-----------------------------------------------------+")
+        print("  |         PERBANDINGAN STRATEGI RUTE KURIR            |")
+        print("  +-----------------------------------------------------+")
 
         print(f"\n  {'Strategi':<30} {'Jarak':>8}  {'Biaya BBM':>12}  {'Simpul':>8}")
         _print_separator("-", 64)
@@ -495,19 +496,20 @@ def run_laguboti_mode() -> None:
 
         # ── REKOMENDASI ──────────────────────────────────────────
         print()
-        print("  ╔════════════════════════════════════════════════════════╗")
-        print("  ║                  REKOMENDASI SISTEM                   ║")
-        print("  ╠════════════════════════════════════════════════════════╣")
+        print("  +======================================================+")
+        print("  |                  REKOMENDASI SISTEM                  |")
+        print("  +======================================================+")
         if astar_fuel.found:
-            print(f"  ║  Gunakan Rute A* (Paling Hemat BBM):               ║")
-            print(f"  ║  • Jarak    : {astar_fuel.total_distance:.2f} km{' ' * (40 - len(f'{astar_fuel.total_distance:.2f} km'))}║")
-            print(f"  ║  • Biaya    : Rp {astar_fuel.total_cost:,.0f}{' ' * (38 - len(f'Rp {astar_fuel.total_cost:,.0f}'))}║")
+            print(f"  |  Gunakan Rute A* (Paling Hemat BBM):                |")
+            print(f"  |  - Jarak    : {astar_fuel.total_distance:.2f} km")
+            print(f"  |  - Biaya    : Rp {astar_fuel.total_cost:,.0f}")
             if same_route:
-                print(f"  ║  • Catatan  : Rute terpendek = rute teririt BBM!   ║")
+                print(f"  |  - Catatan  : Rute terpendek = rute teririt BBM!    |")
             elif savings_rp > 0:
-                print(f"  ║  • Hemat    : Rp {savings_rp:,.0f} ({savings_pct:.1f}%) vs jarak terpendek{' ' * max(0, 14 - len(f'Rp {savings_rp:,.0f} ({savings_pct:.1f}%)'))}║")
-                print(f"  ║  • Tradeoff : +{extra_km:.2f} km lebih jauh, tapi lebih irit BBM   ║")
-        print("  ╚════════════════════════════════════════════════════════╝")
+                print(f"  |  - Hemat    : Rp {savings_rp:,.0f} ({savings_pct:.1f}%) vs jarak terpendek |")
+                print(f"  |  - Tradeoff : +{extra_km:.2f} km lebih jauh, tapi lebih irit BBM    |")
+        print("  +======================================================+")
+
 
         # ── Catatan Akademis (Efisiensi A* vs UCS) ──────────────
         if ucs_fuel.found and astar_fuel.found and ucs_fuel.nodes_expanded > 0:
@@ -555,6 +557,35 @@ def generate_lagubiti_folium_map_safe(graph, ucs_result, astar_result, scenario_
 
 
 
+
+def run_dispatch_mode() -> None:
+    """Jalankan demonstrasi alur integrasi M2 (CSP Allocation) -> M1 (A* Routing)."""
+    from certan_01.orchestrator import dispatch_and_route
+    from certan_01.solver import Package, create_default_courier_fleet
+
+    print("\n" + "=" * 64)
+    print("  SIMULASI DISPATCH TERINTEGRASI: CSP (M2) -> A* ROUTING (M1)")
+    print("=" * 64)
+
+    packages = [
+        Package("P01", destination_node="it_del_sitoluama",   weight_kg=2.5,  is_bulky=False, estimated_time_hrs=0.4),
+        Package("P02", destination_node="sma_unggul_del",     weight_kg=1.2,  is_bulky=False, estimated_time_hrs=0.4),
+        Package("P03", destination_node=(2.3340, 99.0665),    weight_kg=3.8,  is_bulky=False, estimated_time_hrs=0.5),  # GPS: Mixue Balige
+        Package("P04", destination_node="pasar_laguboti",     weight_kg=8.0,  is_bulky=False, estimated_time_hrs=0.6),
+        Package("P05", destination_node="rs_hkbp_balige",     weight_kg=22.0, is_bulky=True,  estimated_time_hrs=0.8),  # Bulky -> Mobil Box
+    ]
+    fleet = create_default_courier_fleet(fleet_size=3)
+
+    plan = dispatch_and_route(
+        packages=packages,
+        couriers=fleet,
+        hub_landmark="hub_jne_laguboti",
+        vehicle="motor_matik_kurir",
+        verbose=True,
+    )
+    plan.print_summary(verbose=True)
+
+
 from certan_01.chatbot import run_chatbot_cli
 
 
@@ -563,12 +594,12 @@ from certan_01.chatbot import run_chatbot_cli
 # ---------------------------------------------------------------------------
 
 def main() -> None:
-
     """
     Titik masuk utama program CLI.
 
     Argumen baris perintah:
       --chat       : Jalankan mode percakapan Chatbot Asisten Kurir (Default).
+      --dispatch   : Jalankan integrasi M2 (CSP Alokasi) -> M1 (A* Routing Armada).
       --laguboti   : Jalankan 4 skenario rute nyata Laguboti (OSM + BBM Pertamina).
       --demo       : Mode demo otomatis (semua skenario perkotaan).
       --bench      : Mode benchmark saja (hanya tabel metrik).
@@ -599,7 +630,7 @@ def main() -> None:
         exported_any = True
 
     # Jika hanya ekspor/visualize (tanpa flag mode), selesai di sini
-    if exported_any and not any(f in args for f in ("--demo", "--bench", "--laguboti", "--chat")):
+    if exported_any and not any(f in args for f in ("--demo", "--bench", "--laguboti", "--chat", "--dispatch")):
         return
 
     if "--help" in args or "-h" in args:
@@ -611,6 +642,7 @@ Penggunaan:
 Opsi Utama:
   (tanpa opsi)      Jalankan Chatbot Asisten Pintar Kurir (Mode Percakapan Interaktif)
   --chat            Jalankan Chatbot Asisten Pintar Kurir
+  --dispatch        Jalankan integrasi M2 (CSP Alokasi) -> M1 (A* Routing Armada)
   --laguboti        Jalankan 4 skenario rute nyata Laguboti (OSM + BBM Pertamina)
   --demo            Jalankan demonstrasi otomatis pada 4 skenario kurir
   --bench, --benchmark
@@ -629,6 +661,8 @@ Opsi Utama:
         run_benchmark_mode()
     elif "--laguboti" in args:
         run_laguboti_mode()
+    elif "--dispatch" in args:
+        run_dispatch_mode()
     elif "--custom" in args:
         run_custom_mode()
     elif "--chat" in args or not exported_any:

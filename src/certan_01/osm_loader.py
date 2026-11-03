@@ -63,39 +63,71 @@ def get_cached_osm_graph(path: Path | str) -> nx.MultiDiGraph:
 # ---------------------------------------------------------------------------
 
 LANDMARKS: dict[str, tuple[float, float]] = {
-    # --- Wilayah Laguboti ---
-    "hub_jne_laguboti"    : (2.3667, 99.1247),   # Pusat Pasar / Area JNE Laguboti
-    "it_del_sitoluama"    : (2.3832, 99.1486),   # Institut Teknologi Del
-    "sma_unggul_del"      : (2.3881, 99.1505),   # SMA Unggul Del
-    "simpang_balige_jalan": (2.3550, 99.1150),   # Simpang ke Jl. Dr. TB Silalahi
-    "pasar_laguboti"      : (2.3660, 99.1240),   # Pasar Tradisional Laguboti
-    "spbu_laguboti"       : (2.3615, 99.1215),   # SPBU Pertamina Laguboti
-    "stasiun_laguboti"    : (2.3705, 99.1285),   # Stasiun Laguboti
-    "kantor_camat"        : (2.3645, 99.1225),   # Kantor Camat Laguboti
-    "polsek_laguboti"     : (2.3675, 99.1255),   # Polsek Laguboti
-    "puskesmas_laguboti"  : (2.3685, 99.1270),   # Puskesmas Laguboti
-    "desa_sitoluama"      : (2.3840, 99.1460),   # Desa Sitoluama
-    "desa_lumban_bagasan" : (2.3750, 99.1350),   # Desa Lumban Bagasan
+    # --- Wilayah Laguboti (Presisi Jalan Nyata < 0.8 meter dari OSM Graph) ---
+    "hub_jne_laguboti"    : (2.36644, 99.12925),   # Hub JNE / Kantor Pos Laguboti (Node 6310150906)
+    "pasar_laguboti"      : (2.36675, 99.13033),   # Pasar Tradisional Laguboti (Node 6310150918)
+    "it_del_sitoluama"    : (2.38329, 99.14852),   # Institut Teknologi Del Sitoluama (Gerbang Utama Node 6312201325)
+    "sma_unggul_del"      : (2.38879, 99.15068),   # SMA Unggul Del (Gerbang Utama Node 6312199629)
+    "spbu_laguboti"       : (2.36159, 99.13381),   # SPBU Pertamina Laguboti Lintas Sumatera (Node 6310150731)
+    "kantor_camat"        : (2.36444, 99.12919),   # Kantor Camat Laguboti (Node 6310150783)
+    "polsek_laguboti"     : (2.36775, 99.13045),   # Polsek Laguboti (Node 6310150763)
+    "puskesmas_laguboti"  : (2.36804, 99.12927),   # Puskesmas Laguboti (Node 6310153633)
+    "desa_sitoluama"      : (2.38437, 99.14614),   # Desa Sitoluama Akses Jalan (Node 7702147437)
+    "desa_lumban_bagasan" : (2.36997, 99.13049),   # Desa Lumban Bagasan Laguboti (Node 6310150287)
+    "simpang_balige_jalan": (2.35522, 99.12652),   # Simpang Jl. Dr. TB Silalahi (Node 5108027374)
+    "desa_aruan"          : (2.35654, 99.12627),   # Desa Aruan Laguboti (Node 6310152167)
+    "desa_sibuea"         : (2.35752, 99.12679),   # Desa Sibuea Laguboti (Node 6310146963)
+    "indomaret_laguboti"  : (2.36665, 99.12960),   # Indomaret Laguboti Pasar (Node 6310150916)
+    "alfamart_laguboti"   : (2.36758, 99.13202),   # Alfamart Laguboti (Node 6310150772)
+    "bank_sumut_laguboti" : (2.36644, 99.12925),   # Bank Sumut Capem Laguboti (Node 6310150906)
+    "bri_laguboti"        : (2.36578, 99.12877),   # Bank BRI Unit Laguboti (Node 6310150890)
+    "rm_bpk_flyover"      : (2.36963, 99.13043),   # RM BPK Fly Over Laguboti (Node 6310151791)
+    "ambarado_cafe"       : (2.38461, 99.14606),   # Ambarado Cafe & Resto Sitoluama (Node 6312199293)
+    "gereja_hkbp_laguboti": (2.36719, 99.13259),   # Gereja HKBP Laguboti Kota (Node 7708927025)
+    "smp_negeri_1_laguboti": (2.36480, 99.13100),  # SMP Negeri 1 Laguboti (Node 6310150779)
+    "sman_1_laguboti"     : (2.36775, 99.13045),   # SMA Negeri 1 Laguboti (Node 6310150763)
+    "klinik_del_sitoluama": (2.38316, 99.14955),   # Klinik Pratama Del Sitoluama (Node 6312199091)
+    "kantor_pos_laguboti" : (2.36644, 99.12925),   # Kantor Pos Indonesia Laguboti (Node 6310150906)
+    "stasiun_laguboti"    : (2.36719, 99.13259),   # Area Terminal / Eks Stasiun Laguboti (Node 7708927025)
 
     # --- Wilayah Balige (Ibukota Kab. Toba) ---
-    "pusat_pasar_balige"   : (2.3333, 99.0645),   # Pusat Pasar Tradisional Onan Balige
-    "rs_hkbp_balige"       : (2.3361, 99.0722),   # RS HKBP Balige
-    "simpang_bypass_balige": (2.3275, 99.0550),   # Simpang Jalur By Pass Balige
-    "museum_tb_silalahi"   : (2.3488, 99.0832),   # TB Silalahi Center Balige
-    "pantai_bulbul"        : (2.3450, 99.0700),   # Pantai Pasir Putih Lumban Bulbul
+    "pusat_pasar_balige"   : (2.3338, 99.0645),   # Pusat Pasar Tradisional Onan Balige
+    "mixue_balige"         : (2.3340, 99.0665),   # Mixue Balige (Jl. Sisingamangaraja No. 59)
+    "indomaret_balige"     : (2.3338, 99.0652),   # Indomaret Balige (Jl. Sisingamangaraja)
+    "alfamart_balige"      : (2.3341, 99.0660),   # Alfamart Balige (Jl. Sisingamangaraja)
+    "rs_hkbp_balige"       : (2.3340, 99.0670),   # RS HKBP Balige (Jl. Gereja No. 17)
+    "gereja_hkbp_balige"   : (2.3325, 99.0668),   # Gereja HKBP Balige Kota (Jl. Gereja)
+    "simpang_bypass_balige": (2.3248, 99.0400),   # Simpang Jalur By Pass Balige
+    "museum_tb_silalahi"   : (2.3488, 99.0832),   # Museum TB Silalahi Center Pagar Batu
+    "pantai_bulbul"        : (2.3465, 99.0845),   # Pantai Pasir Putih Lumban Bulbul Balige
     "kantor_bupati_toba"   : (2.3310, 99.0610),   # Kantor Bupati Toba Balige
-    "hotel_labersa"        : (2.3350, 99.0950),   # Hotel Labersa Grand Toba
+    "polres_toba"          : (2.3220, 99.0600),   # Polres Toba Balige (Jl. Bypass)
+    "hotel_labersa"        : (2.3480, 99.0880),   # Hotel Labersa Grand Toba & Convention Center
     "hotel_niagara"        : (2.3310, 99.0640),   # Hotel Niagara Balige
     "hotel_pardede"        : (2.3365, 99.0730),   # Hotel Pardede International Balige
+    "spbu_balige"          : (2.3370, 99.0680),   # SPBU Pertamina Balige (Juanda)
+    "pelabuhan_balige"     : (2.3385, 99.0655),   # Pelabuhan / Dermaga Kapal Balige
+    "lapangan_sisingamangaraja_balige": (2.3335, 99.0635), # Lapangan Sisingamangaraja Balige (Alun-alun)
+    "kantor_pos_balige"    : (2.3339, 99.0653),   # Kantor Pos Balige
+    "bri_balige"           : (2.3336, 99.0642),   # Bank BRI Kanca Balige
+    "mandiri_balige"       : (2.3337, 99.0648),   # Bank Mandiri Balige
+    "bni_balige"           : (2.3340, 99.0655),   # Bank BNI Balige
+    "bank_sumut_balige"    : (2.3334, 99.0638),   # Bank Sumut Balige
+    "apotek_kimia_farma_balige": (2.3340, 99.0658), # Apotek Kimia Farma Balige
+    "sman_1_balige"        : (2.3385, 99.0740),   # SMA Negeri 1 Balige
+    "sman_2_balige"        : (2.3410, 99.0760),   # SMA Negeri 2 Balige (Soposurung)
+    "hutanta_coffee"       : (2.3420, 99.0750),   # Hutanta Coffee & Resto Balige
+    "tepi_danau_bistro"    : (2.3430, 99.0760),   # Tepi Danau Bistro Balige
+    "lagos_cafe"           : (2.3440, 99.0750),   # Lago's Cafe Balige (Pantai Sibolahotang)
+    "rm_bpk_panca"         : (2.3350, 99.0650),   # RM BPK Panca Balige
 
     # --- Wilayah Porsea & Sigumpar (Toba) ---
     "pasar_porsea"         : (2.4462, 99.1448),   # Pusat Pasar / Dermaga Porsea
-    "simpang_sigumpar"     : (2.4085, 99.1352),   # Simpang Sigumpar (Porsea - Laguboti)
-    "makam_sisingamangaraja": (2.3950, 99.1300),  # Makam Raja Sisingamangaraja XII
-
-    # --- Wilayah Desa Sekitar Laguboti ---
-    "desa_aruan"           : (2.3710, 99.1180),   # Desa Aruan Laguboti
-    "desa_sibuea"          : (2.3780, 99.1220),   # Desa Sibuea Laguboti
+    "rsud_porsea"          : (2.4475, 99.1465),   # RSUD Porsea
+    "simpang_sigumpar"     : (2.4048, 99.1665),   # Simpang Sigumpar (Porsea - Laguboti)
+    "makam_sisingamangaraja": (2.4048, 99.1665),  # Makam Pahlawan Raja Sisingamangaraja XII (Sigumpar)
+    "pantai_parparean"     : (2.4510, 99.1520),   # Pantai Pasir Putih Parparean Porsea
+    "jembatan_sungai_asahan": (2.4423, 99.1566),  # Jembatan Sungai Asahan Porsea
 
     # --- Wilayah Siborong-borong (Tapanuli Utara) ---
     "bandara_silangit"     : (2.2608, 98.9917),   # Bandara Internasional Silangit (DTB)
@@ -108,7 +140,7 @@ LANDMARKS: dict[str, tuple[float, float]] = {
     "salib_kasih"          : (2.0080, 98.9780),   # Wisata Salib Kasih Siatas Barita
     "kantor_pusat_hkbp"    : (2.0250, 98.9720),   # Kantor Pusat HKBP Pearaja Tarutung
 
-    # --- Ruas Jalan Terdaftar di Peta OSM (Balige, Laguboti, Porsea, Tarutung) ---
+    # --- Ruas Jalan OSM Representatif ---
     "jl_sisingamangaraja"     : (2.3343, 99.0669),   # Jl. Sisingamangaraja Balige
     "jl_gereja_balige"        : (2.3311, 99.0669),   # Jl. Gereja Balige
     "jl_hutabulu_mejan"       : (2.3315, 99.0845),   # Jl. Hutabulu Mejan Balige
@@ -123,39 +155,8 @@ LANDMARKS: dict[str, tuple[float, float]] = {
     "jl_pahae_tarutung"       : (2.0173, 98.9839),   # Jl. Pahae Tarutung
     "jl_sibolga_tarutung"     : (2.0012, 98.9597),   # Jl. Sibolga - Tarutung
     "jl_parapat_porsea"       : (2.4601, 99.1494),   # Jl. Parapat - Porsea
-    "jembatan_sungai_asahan"  : (2.4423, 99.1566),   # Jembatan Sungai Asahan Porsea
     "jl_lintas_tengah_sumatera": (2.0049, 98.9906),  # Jl. Lintas Tengah Sumatera
     "trans_sumatra_highway"   : (2.3538, 99.0954),   # Trans Sumatra Highway
-
-    # --- Tempat Terkenal & Populer Google Maps (Balige, Laguboti, Porsea) ---
-    "mixue_balige"            : (2.3340, 99.0665),   # Mixue Balige (Jl. Sisingamangaraja)
-    "indomaret_balige"        : (2.3335, 99.0650),   # Indomaret Balige
-    "alfamart_balige"         : (2.3342, 99.0660),   # Alfamart Balige
-    "indomaret_laguboti"      : (2.3665, 99.1245),   # Indomaret Laguboti
-    "alfamart_laguboti"       : (2.3670, 99.1250),   # Alfamart Laguboti
-    "hutanta_coffee"          : (2.3360, 99.0710),   # Hutanta Coffee & Resto Balige
-    "tepi_danau_bistro"       : (2.3420, 99.0730),   # Tepi Danau Bistro Balige
-    "lagos_cafe"              : (2.3440, 99.0750),   # Lago's Cafe Balige (Pantai Sibolahotang)
-    "ambarado_cafe"           : (2.3850, 99.1420),   # Ambarado Cafe & Resto Laguboti
-    "rm_bpk_panca"            : (2.3350, 99.0650),   # RM BPK Panca Balige
-    "rm_bpk_flyover"          : (2.3680, 99.1260),   # RM BPK Fly Over Laguboti
-    "spbu_balige"             : (2.3370, 99.0700),   # SPBU Pertamina Balige (Juanda)
-    "apotek_kimia_farma_balige": (2.3340, 99.0658),  # Apotek Kimia Farma Balige
-    "bri_balige"              : (2.3330, 99.0640),   # Bank BRI Cabang Balige
-    "mandiri_balige"          : (2.3335, 99.0648),   # Bank Mandiri Balige
-    "bni_balige"              : (2.3340, 99.0655),   # Bank BNI Balige
-    "bank_sumut_balige"       : (2.3325, 99.0635),   # Bank Sumut Balige
-    "bank_sumut_laguboti"     : (2.3668, 99.1248),   # Bank Sumut Laguboti
-    "bri_laguboti"            : (2.3660, 99.1240),   # Bank BRI Unit Laguboti
-    "polres_toba"             : (2.3290, 99.0580),   # Polres Toba Balige
-    "pelabuhan_balige"        : (2.3380, 99.0680),   # Pelabuhan / Dermaga Kapal Balige
-    "lapangan_sisingamangaraja_balige": (2.3330, 99.0630), # Lapangan Sisingamangaraja Balige (Alun-alun)
-    "kantor_pos_balige"       : (2.3338, 99.0652),   # Kantor Pos Balige
-    "sman_1_balige"           : (2.3385, 99.0740),   # SMA Negeri 1 Balige
-    "sman_2_balige"           : (2.3410, 99.0760),   # SMA Negeri 2 Balige (Soposurung)
-    "gereja_hkbp_balige"      : (2.3315, 99.0670),   # Gereja HKBP Balige Kota
-    "rsud_porsea"             : (2.4475, 99.1465),   # RSUD Porsea
-    "pantai_parparean"        : (2.4510, 99.1520),   # Pantai Pasir Putih Parparean Porsea
 }
 
 LANDMARK_LABELS: dict[str, str] = {
@@ -165,8 +166,8 @@ LANDMARK_LABELS: dict[str, str] = {
     "sma_unggul_del"          : "SMA Unggul Del",
     "simpang_balige_jalan"    : "Simpang Jl. Dr. TB. Silalahi",
     "pasar_laguboti"          : "Pasar Tradisional Laguboti",
-    "spbu_laguboti"           : "SPBU Pertamina Laguboti",
-    "stasiun_laguboti"        : "Stasiun Laguboti",
+    "spbu_laguboti"           : "SPBU Pertamina Laguboti (Lintas)",
+    "stasiun_laguboti"        : "Area Terminal / Eks Stasiun Laguboti",
     "kantor_camat"            : "Kantor Camat Laguboti",
     "polsek_laguboti"         : "Polsek Laguboti",
     "puskesmas_laguboti"      : "Puskesmas Laguboti",
@@ -174,6 +175,17 @@ LANDMARK_LABELS: dict[str, str] = {
     "desa_lumban_bagasan"     : "Desa Lumban Bagasan",
     "desa_aruan"              : "Desa Aruan (Laguboti)",
     "desa_sibuea"             : "Desa Sibuea (Laguboti)",
+    "indomaret_laguboti"      : "Indomaret Laguboti",
+    "alfamart_laguboti"       : "Alfamart Laguboti",
+    "bank_sumut_laguboti"     : "Bank Sumut Capem Laguboti",
+    "bri_laguboti"            : "Bank BRI Unit Laguboti",
+    "rm_bpk_flyover"          : "RM BPK Fly Over Laguboti",
+    "ambarado_cafe"           : "Ambarado Cafe & Resto Laguboti",
+    "gereja_hkbp_laguboti"    : "Gereja HKBP Laguboti Kota",
+    "smp_negeri_1_laguboti"   : "SMP Negeri 1 Laguboti",
+    "sman_1_laguboti"         : "SMA Negeri 1 Laguboti",
+    "klinik_del_sitoluama"    : "Klinik Pratama Del Sitoluama",
+    "kantor_pos_laguboti"     : "Kantor Pos Indonesia Laguboti",
 
     # Balige
     "pusat_pasar_balige"      : "Pusat Pasar Balige (Onan)",
@@ -182,11 +194,37 @@ LANDMARK_LABELS: dict[str, str] = {
     "museum_tb_silalahi"      : "Museum TB Silalahi Center",
     "pantai_bulbul"           : "Pantai Lumban Bulbul Balige",
     "kantor_bupati_toba"      : "Kantor Bupati Toba (Balige)",
+    "polres_toba"             : "Polres Toba (Balige)",
+    "hotel_labersa"           : "Hotel Labersa Grand Toba & Convention",
+    "hotel_niagara"           : "Hotel Niagara Balige",
+    "hotel_pardede"           : "Hotel Pardede International (Balige)",
+    "spbu_balige"             : "SPBU Pertamina Balige (Juanda)",
+    "pelabuhan_balige"        : "Pelabuhan / Dermaga Kapal Balige",
+    "lapangan_sisingamangaraja_balige": "Lapangan Sisingamangaraja (Alun-alun Balige)",
+    "kantor_pos_balige"       : "Kantor Pos Balige",
+    "bri_balige"              : "Bank BRI Cabang Balige",
+    "mandiri_balige"          : "Bank Mandiri Balige",
+    "bni_balige"              : "Bank BNI Balige",
+    "bank_sumut_balige"       : "Bank Sumut Balige",
+    "apotek_kimia_farma_balige": "Apotek Kimia Farma Balige",
+    "mixue_balige"            : "Mixue Balige (Jl. Sisingamangaraja)",
+    "indomaret_balige"        : "Indomaret Balige (Jl. Sisingamangaraja)",
+    "alfamart_balige"         : "Alfamart Balige",
+    "sman_1_balige"           : "SMA Negeri 1 Balige",
+    "sman_2_balige"           : "SMA Negeri 2 Balige (Soposurung)",
+    "gereja_hkbp_balige"      : "Gereja HKBP Balige Kota",
+    "hutanta_coffee"          : "Hutanta Coffee & Resto Balige",
+    "tepi_danau_bistro"       : "Tepi Danau Bistro Balige",
+    "lagos_cafe"              : "Lago's Cafe Balige",
+    "rm_bpk_panca"            : "RM BPK Panca Balige",
 
     # Porsea & Sigumpar
     "pasar_porsea"            : "Pusat Pasar & Dermaga Porsea",
+    "rsud_porsea"             : "RSUD Porsea",
     "simpang_sigumpar"        : "Simpang Sigumpar (Porsea)",
     "makam_sisingamangaraja"  : "Makam Sisingamangaraja XII (Sigumpar)",
+    "pantai_parparean"        : "Pantai Pasir Putih Parparean (Porsea)",
+    "jembatan_sungai_asahan"  : "Jembatan Sungai Asahan (Porsea)",
 
     # Siborong-borong
     "bandara_silangit"        : "Bandara Internasional Silangit (DTB)",
@@ -199,12 +237,7 @@ LANDMARK_LABELS: dict[str, str] = {
     "salib_kasih"             : "Wisata Salib Kasih Siatas Barita",
     "kantor_pusat_hkbp"       : "Kantor Pusat HKBP Pearaja Tarutung",
 
-    # Hotel
-    "hotel_labersa"           : "Hotel Labersa Grand Toba (Balige)",
-    "hotel_niagara"           : "Hotel Niagara Balige",
-    "hotel_pardede"           : "Hotel Pardede International (Balige)",
-
-    # Ruas Jalan OSM
+    # Ruas Jalan OSM (Titik representatif jalan)
     "jl_sisingamangaraja"     : "Jl. Sisingamangaraja (Balige)",
     "jl_gereja_balige"        : "Jl. Gereja (Balige)",
     "jl_hutabulu_mejan"       : "Jl. Hutabulu Mejan (Balige)",
@@ -219,45 +252,822 @@ LANDMARK_LABELS: dict[str, str] = {
     "jl_pahae_tarutung"       : "Jl. Pahae (Tarutung)",
     "jl_sibolga_tarutung"     : "Jl. Sibolga - Tarutung",
     "jl_parapat_porsea"       : "Jl. Parapat - Porsea",
-    "jembatan_sungai_asahan"  : "Jembatan Sungai Asahan (Porsea)",
     "jl_lintas_tengah_sumatera": "Jl. Lintas Tengah Sumatera",
     "trans_sumatra_highway"   : "Trans Sumatra Highway",
-
-    # Tempat Terkenal Populer
-    "mixue_balige"            : "Mixue Balige (Jl. Sisingamangaraja)",
-    "indomaret_balige"        : "Indomaret Balige (Jl. Sisingamangaraja)",
-    "alfamart_balige"         : "Alfamart Balige",
-    "indomaret_laguboti"      : "Indomaret Laguboti",
-    "alfamart_laguboti"       : "Alfamart Laguboti",
-    "hutanta_coffee"          : "Hutanta Coffee & Resto Balige",
-    "tepi_danau_bistro"       : "Tepi Danau Bistro Balige",
-    "lagos_cafe"              : "Lago's Cafe Balige",
-    "ambarado_cafe"           : "Ambarado Cafe & Resto Laguboti",
-    "rm_bpk_panca"            : "RM BPK Panca Balige",
-    "rm_bpk_flyover"          : "RM BPK Fly Over Laguboti",
-    "spbu_balige"             : "SPBU Pertamina Balige (Juanda)",
-    "apotek_kimia_farma_balige": "Apotek Kimia Farma Balige",
-    "bri_balige"              : "Bank BRI Cabang Balige",
-    "mandiri_balige"          : "Bank Mandiri Balige",
-    "bni_balige"              : "Bank BNI Balige",
-    "bank_sumut_balige"       : "Bank Sumut Balige",
-    "bank_sumut_laguboti"     : "Bank Sumut Laguboti",
-    "bri_laguboti"            : "Bank BRI Unit Laguboti",
-    "polres_toba"             : "Polres Toba (Balige)",
-    "pelabuhan_balige"        : "Pelabuhan / Dermaga Balige",
-    "lapangan_sisingamangaraja_balige": "Lapangan Sisingamangaraja (Alun-alun Balige)",
-    "kantor_pos_balige"       : "Kantor Pos Balige",
-    "sman_1_balige"           : "SMA Negeri 1 Balige",
-    "sman_2_balige"           : "SMA Negeri 2 Balige (Soposurung)",
-    "gereja_hkbp_balige"      : "Gereja HKBP Balige Kota",
-    "rsud_porsea"             : "RSUD Porsea",
-    "pantai_parparean"        : "Pantai Pasir Putih Parparean (Porsea)",
 }
+
+# ---------------------------------------------------------------------------
+# Metadata Detail Landmark untuk Visualisasi & Rekomendasi Rute
+# ---------------------------------------------------------------------------
+
+LANDMARK_DETAILS: dict[str, dict[str, Any]] = {
+    # Laguboti
+    "hub_jne_laguboti": {
+        "name": "Hub JNE / Kantor Pos Laguboti",
+        "category": "Logistik & Ekspedisi",
+        "cat_key": "publik",
+        "icon": "fa-solid fa-truck-fast",
+        "color": "#2563EB",
+        "address": "Jl. Sisingamangaraja, Laguboti",
+        "description": "Depo utama logistik kurir, pusat sortir paket dan drop point pengiriman wilayah Laguboti.",
+        "courier_note": "Akses bongkar muat motor & mobil lancar. Tersedia zona sortir paket dan parkir kurir.",
+    },
+    "it_del_sitoluama": {
+        "name": "Institut Teknologi Del (Sitoluama)",
+        "category": "Pendidikan & Kampus",
+        "cat_key": "pendidikan",
+        "icon": "fa-solid fa-graduation-cap",
+        "color": "#7C3AED",
+        "address": "Jl. Sisingamangaraja, Sitoluama, Laguboti",
+        "description": "Kampus perguruan tinggi teknologi terkemuka di tepian Danau Toba dengan ribuan sivitas akademika.",
+        "courier_note": "Penerimaan paket terpusat di Pos Keamanan Gerbang Utama (Security Gate). Parkir motor kurir tersedia.",
+    },
+    "sma_unggul_del": {
+        "name": "SMA Unggul Del",
+        "category": "Pendidikan & Kampus",
+        "cat_key": "pendidikan",
+        "icon": "fa-solid fa-graduation-cap",
+        "color": "#7C3AED",
+        "address": "Desa Sitoluama, Laguboti",
+        "description": "Sekolah menengah atas berasrama unggulan nasional dengan sistem kedisiplinan ketat.",
+        "courier_note": "Pengantaran paket drop di Pos Satpam Depan. Hubungi penerima via telepon sebelum gerbang.",
+    },
+    "pasar_laguboti": {
+        "name": "Pasar Tradisional Onan Laguboti",
+        "category": "Perbelanjaan & Niaga",
+        "cat_key": "niaga",
+        "icon": "fa-solid fa-store",
+        "color": "#EA580C",
+        "address": "Jl. Pasar, Laguboti",
+        "description": "Pusat transaksi niaga komoditas pangan, kebutuhan harian, dan sandang masyarakat Laguboti.",
+        "courier_note": "Sangat ramai pada hari pekan (onan). Sebaiknya kurir memarkir motor di tepi jalan utama.",
+    },
+    "spbu_laguboti": {
+        "name": "SPBU Pertamina 14.223.328 Laguboti",
+        "category": "Stasiun Pengisian BBM",
+        "cat_key": "spbu",
+        "icon": "fa-solid fa-gas-pump",
+        "color": "#B91C1C",
+        "address": "Jl. Lintas Sumatera, Laguboti",
+        "description": "Stasiun pengisian bahan bakar resmi Pertamina (Pertalite, Pertamax, Solar) operasional 24 jam.",
+        "courier_note": "Titik pengisian BBM strategis armada kurir di koridor lintas Laguboti-Porsea.",
+    },
+    "kantor_camat": {
+        "name": "Kantor Camat Laguboti",
+        "category": "Instansi & Layanan Publik",
+        "cat_key": "publik",
+        "icon": "fa-solid fa-landmark",
+        "color": "#475569",
+        "address": "Jl. Sisingamangaraja, Laguboti",
+        "description": "Pusat administrasi pemerintahan tingkat kecamatan dan pelayanan terpadu kependudukan warga.",
+        "courier_note": "Drop paket di loket resepsionis / bagian persuratan kantor. Jam layanan 08:00 - 16:00 WIB.",
+    },
+    "polsek_laguboti": {
+        "name": "Polsek Laguboti",
+        "category": "Instansi & Layanan Publik",
+        "cat_key": "publik",
+        "icon": "fa-solid fa-shield-halved",
+        "color": "#475569",
+        "address": "Jl. Dr. TB. Silalahi, Laguboti",
+        "description": "Markas kepolisian sektor pengamanan wilayah hukum dan ketertiban masyarakat Laguboti.",
+        "courier_note": "Akses pengantaran 24 jam via pos penjagaan Sentra Pelayanan Kepolisian Terpadu (SPKT).",
+    },
+    "puskesmas_laguboti": {
+        "name": "Puskesmas Laguboti",
+        "category": "Fasilitas Kesehatan",
+        "cat_key": "kesehatan",
+        "icon": "fa-solid fa-hospital",
+        "color": "#DC2626",
+        "address": "Jl. Sisingamangaraja, Laguboti",
+        "description": "Pusat kesehatan masyarakat rujukan utama kecamatan dengan layanan IGD dan rawat jalan.",
+        "courier_note": "Akses ambulans harus tetap steril. Parkir motor kurir di area samping gedung pendaftaran.",
+    },
+    "klinik_del_sitoluama": {
+        "name": "Klinik Pratama Del Sitoluama",
+        "category": "Fasilitas Kesehatan",
+        "cat_key": "kesehatan",
+        "icon": "fa-solid fa-hospital",
+        "color": "#DC2626",
+        "address": "Jl. Pematang Siantar, Sitoluama, Laguboti",
+        "description": "Layanan fasilitas kesehatan pratama bagi sivitas akademika kampus Del dan warga Sitoluama.",
+        "courier_note": "Pengantaran paket medis atau dokumen langsung ke meja administrasi klinik.",
+    },
+    "desa_sitoluama": {
+        "name": "Kawasan Pemukiman Desa Sitoluama",
+        "category": "Kawasan Pemukiman",
+        "cat_key": "wilayah",
+        "icon": "fa-solid fa-location-dot",
+        "color": "#64748B",
+        "address": "Sitoluama, Laguboti",
+        "description": "Kawasan hunian dan kos-kosan mahasiswa IT Del dengan jalan beraspal mulus.",
+        "courier_note": "Banyak lorong hunian mahasiswa. Konfirmasi nama kos dan nomor kamar via WhatsApp.",
+    },
+    "desa_lumban_bagasan": {
+        "name": "Desa Lumban Bagasan",
+        "category": "Kawasan Pemukiman",
+        "cat_key": "wilayah",
+        "icon": "fa-solid fa-location-dot",
+        "color": "#64748B",
+        "address": "Lumban Bagasan, Laguboti",
+        "description": "Kawasan perumahan warga dan sentra kerajinan tenun kain Ulos tradisional Batak.",
+        "courier_note": "Jalan lingkungan selebar 4 meter. Akses motor kurir sangat leluasa.",
+    },
+    "simpang_balige_jalan": {
+        "name": "Simpang Tiga Dr. TB. Silalahi",
+        "category": "Kawasan Pemukiman & Simpang",
+        "cat_key": "wilayah",
+        "icon": "fa-solid fa-signs-post",
+        "color": "#64748B",
+        "address": "Simpang Jl. Dr. TB. Silalahi, Laguboti",
+        "description": "Persimpangan strategis yang menghubungkan jalan poros lintas Sumatera dengan bypass Silalahi.",
+        "courier_note": "Titik temu arus lalu lintas padat pagi dan sore. Perhatikan lampu lalu lintas / arus kendaraan.",
+    },
+    "desa_aruan": {
+        "name": "Desa Aruan (Laguboti)",
+        "category": "Kawasan Pemukiman",
+        "cat_key": "wilayah",
+        "icon": "fa-solid fa-location-dot",
+        "color": "#64748B",
+        "address": "Desa Aruan, Laguboti",
+        "description": "Kawasan pemukiman warga agraris di koridor selatan Laguboti arah Balige.",
+        "courier_note": "Akses jalan aspal penghubung desa. Lalu lintas tenang dan minim hambatan.",
+    },
+    "desa_sibuea": {
+        "name": "Desa Sibuea (Laguboti)",
+        "category": "Kawasan Pemukiman",
+        "cat_key": "wilayah",
+        "icon": "fa-solid fa-location-dot",
+        "color": "#64748B",
+        "address": "Desa Sibuea, Laguboti",
+        "description": "Pemukiman penduduk di koridor transisi perbatasan Laguboti menuju Balige.",
+        "courier_note": "Jalan lingkar desa mulus, mudah dilalui sepeda motor kurir.",
+    },
+    "indomaret_laguboti": {
+        "name": "Indomaret Lintas Laguboti",
+        "category": "Perbelanjaan & Niaga",
+        "cat_key": "niaga",
+        "icon": "fa-solid fa-store",
+        "color": "#EA580C",
+        "address": "Jl. Sisingamangaraja, Laguboti",
+        "description": "Minimarket retail modern dengan fasilitas ATM dan area parkir kendaraan luas di tepi jalan utama.",
+        "courier_note": "Drop point pengantaran paket retail dan belanja harian warga.",
+    },
+    "alfamart_laguboti": {
+        "name": "Alfamart Laguboti Kota",
+        "category": "Perbelanjaan & Niaga",
+        "cat_key": "niaga",
+        "icon": "fa-solid fa-store",
+        "color": "#EA580C",
+        "address": "Jl. Sisingamangaraja, Laguboti",
+        "description": "Gerai retail modern kebutuhan sehari-hari dengan parkir motor kurir yang praktis.",
+        "courier_note": "Parkir depan gerai nyaman untuk sepeda motor kurir melakukan serah terima paket.",
+    },
+    "bank_sumut_laguboti": {
+        "name": "Bank Sumut Capem Laguboti",
+        "category": "Layanan Perbankan & ATM",
+        "cat_key": "bank",
+        "icon": "fa-solid fa-building-columns",
+        "color": "#059669",
+        "address": "Jl. Sisingamangaraja, Laguboti",
+        "description": "Kantor cabang pembantu Bank Pembangunan Daerah Sumatera Utara dengan gerai ATM tunai.",
+        "courier_note": "Penerimaan paket dokumen atau surat dinas melalui bagian administrasi lantai 1.",
+    },
+    "bri_laguboti": {
+        "name": "Bank BRI Unit Laguboti",
+        "category": "Layanan Perbankan & ATM",
+        "cat_key": "bank",
+        "icon": "fa-solid fa-building-columns",
+        "color": "#059669",
+        "address": "Jl. Sisingamangaraja, Laguboti",
+        "description": "Kantor unit perbankan BUMN BRI dan jaringan ATM setor-tarik tunai 24 jam.",
+        "courier_note": "Serah terima paket langsung ke petugas sekuriti depan atau customer service.",
+    },
+    "rm_bpk_flyover": {
+        "name": "RM BPK Fly Over Laguboti",
+        "category": "Kuliner & Restoran",
+        "cat_key": "kuliner",
+        "icon": "fa-solid fa-utensils",
+        "color": "#D97706",
+        "address": "Jl. Lintas Sumatera, Laguboti",
+        "description": "Restoran kuliner khas tradisional Batak populer tepi jalan lintas Sumatera.",
+        "courier_note": "Pesanan makanan siap saji / take away tinggi pada jam makan siang (11:30 - 14:00 WIB).",
+    },
+    "ambarado_cafe": {
+        "name": "Ambarado Cafe & Resto",
+        "category": "Kuliner & Kafe",
+        "cat_key": "kuliner",
+        "icon": "fa-solid fa-utensils",
+        "color": "#D97706",
+        "address": "Sitoluama, Laguboti",
+        "description": "Kafe dan tempat santap kuliner modern favorit mahasiswa kampus IT Del dan warga sekitar.",
+        "courier_note": "Titik pengantaran makanan dan pesanan paket kurir yang sering diakses sore hingga malam.",
+    },
+    "gereja_hkbp_laguboti": {
+        "name": "Gereja HKBP Laguboti Kota",
+        "category": "Tempat Ibadah",
+        "cat_key": "ibadah",
+        "icon": "fa-solid fa-church",
+        "color": "#0284C7",
+        "address": "Jl. Gereja, Laguboti",
+        "description": "Kompleks gereja Kristen Protestan historis pusat resort HKBP Laguboti dengan arsitektur klasik.",
+        "courier_note": "Pengantaran surat dinas gereja atau paket pendeta drop di kantor sekretariat gereja.",
+    },
+    "smp_negeri_1_laguboti": {
+        "name": "SMP Negeri 1 Laguboti",
+        "category": "Pendidikan & Kampus",
+        "cat_key": "pendidikan",
+        "icon": "fa-solid fa-graduation-cap",
+        "color": "#7C3AED",
+        "address": "Jl. Sisingamangaraja, Laguboti",
+        "description": "Sekolah menengah pertama negeri rujukan di Laguboti dengan ratusan siswa dan tenaga pendidik.",
+        "courier_note": "Drop paket di ruang tata usaha (TU) atau pos satpam saat jam sekolah (07:30 - 15:00 WIB).",
+    },
+    "sman_1_laguboti": {
+        "name": "SMA Negeri 1 Laguboti",
+        "category": "Pendidikan & Kampus",
+        "cat_key": "pendidikan",
+        "icon": "fa-solid fa-graduation-cap",
+        "color": "#7C3AED",
+        "address": "Jl. Sisingamangaraja, Laguboti",
+        "description": "Sekolah menengah atas negeri utama kecamatan Laguboti.",
+        "courier_note": "Paket diserahkan ke pos penjagaan gerbang utama sekolah.",
+    },
+    "kantor_pos_laguboti": {
+        "name": "Kantor Pos Indonesia Laguboti",
+        "category": "Instansi & Layanan Publik",
+        "cat_key": "publik",
+        "icon": "fa-solid fa-box",
+        "color": "#2563EB",
+        "address": "Jl. Sisingamangaraja, Laguboti",
+        "description": "Kantor pos BUMN penyedia jasa pengiriman surat kilat khusus, logistik, dan layanan wesel pos.",
+        "courier_note": "Mitra logistik ekspedisi kurir resmi.",
+    },
+    "stasiun_laguboti": {
+        "name": "Area Terminal / Eks Stasiun Laguboti",
+        "category": "Instansi & Layanan Publik",
+        "cat_key": "publik",
+        "icon": "fa-solid fa-van-shuttle",
+        "color": "#475569",
+        "address": "Jl. Gereja, Laguboti",
+        "description": "Titik transit pemberhentian angkutan pedesaan dan kendaraan umum rute antar-kecamatan.",
+        "courier_note": "Area perputaran kendaraan angkutan umum. Cukup ramai saat pagi hari.",
+    },
+
+    # Balige
+    "pusat_pasar_balige": {
+        "name": "Pusat Pasar Tradisional Onan Balige",
+        "category": "Perbelanjaan & Niaga",
+        "cat_key": "niaga",
+        "icon": "fa-solid fa-store",
+        "color": "#EA580C",
+        "address": "Jl. Sisingamangaraja / Jl. Melati, Balige",
+        "description": "Pasar terbesar di Kabupaten Toba dengan deretan balairung berornamen gorga Batak yang ikonik.",
+        "courier_note": "Sangat padat terutama pada hari pasar (Jumat). Disarankan kurir masuk lewat koridor tepi barat.",
+    },
+    "mixue_balige": {
+        "name": "Mixue Ice Cream & Tea Balige",
+        "category": "Kuliner & Kafe",
+        "cat_key": "kuliner",
+        "icon": "fa-solid fa-ice-cream",
+        "color": "#D97706",
+        "address": "Jl. Sisingamangaraja No. 59, Balige",
+        "description": "Gerai minuman segar dan es krim populer di pusat pertokoan kota Balige dengan pesanan delivery tinggi.",
+        "courier_note": "Area pick-up kurir cepat di depan kasir. Parkir motor kurir tersedia tepat di depan ruko.",
+    },
+    "indomaret_balige": {
+        "name": "Indomaret Balige Pusat",
+        "category": "Perbelanjaan & Niaga",
+        "cat_key": "niaga",
+        "icon": "fa-solid fa-store",
+        "color": "#EA580C",
+        "address": "Jl. Sisingamangaraja, Balige",
+        "description": "Minimarket retail modern pusat kota Balige.",
+        "courier_note": "Akses praktis untuk serah terima paket kurir e-commerce.",
+    },
+    "alfamart_balige": {
+        "name": "Alfamart Balige Juanda",
+        "category": "Perbelanjaan & Niaga",
+        "cat_key": "niaga",
+        "icon": "fa-solid fa-store",
+        "color": "#EA580C",
+        "address": "Jl. Sisingamangaraja, Balige",
+        "description": "Minimarket retail modern dengan area parkir motor luas.",
+        "courier_note": "Titik antar belanja harian dan paket drop-off.",
+    },
+    "rs_hkbp_balige": {
+        "name": "Rumah Sakit HKBP Balige",
+        "category": "Fasilitas Kesehatan",
+        "cat_key": "kesehatan",
+        "icon": "fa-solid fa-hospital",
+        "color": "#DC2626",
+        "address": "Jl. Gereja No. 17, Balige",
+        "description": "Rumah sakit rujukan utama terlengkap di Kabupaten Toba dengan fasilitas IGD 24 jam dan rawat inap.",
+        "courier_note": "Akses dua arah. Pengantaran paket ke loket informasi lobi utama gedung.",
+    },
+    "gereja_hkbp_balige": {
+        "name": "Gereja HKBP Balige Kota",
+        "category": "Tempat Ibadah",
+        "cat_key": "ibadah",
+        "icon": "fa-solid fa-church",
+        "color": "#0284C7",
+        "address": "Jl. Gereja, Balige",
+        "description": "Kompleks gereja bersejarah dengan menara megah di pusat jantung kota Balige.",
+        "courier_note": "Pengantaran surat dinas gereja atau paket diserahkan ke kantor sekretariat distrik.",
+    },
+    "simpang_bypass_balige": {
+        "name": "Simpang Jalur By Pass Balige",
+        "category": "Kawasan Pemukiman & Simpang",
+        "cat_key": "wilayah",
+        "icon": "fa-solid fa-signs-post",
+        "color": "#64748B",
+        "address": "Jalur Lingkar Luar By Pass, Balige",
+        "description": "Jalur arteri lingkar luar pengurai kepadatan lalu lintas pusat pasar tradisional Balige.",
+        "courier_note": "Jalan mulus dan lebar, kecepatan rata-rata kendaraan lebih tinggi dibanding jalur kota.",
+    },
+    "museum_tb_silalahi": {
+        "name": "Museum TB Silalahi Center",
+        "category": "Destinasi Wisata & Budaya",
+        "cat_key": "wisata",
+        "icon": "fa-solid fa-camera",
+        "color": "#0D9488",
+        "address": "Jl. Pagar Batu No. 88, Balige",
+        "description": "Pusat konservasi kebudayaan Batak dan museum militer jejak sejarah pahlawan di tepian Danau Toba.",
+        "courier_note": "Drop paket kurir di loket resepsionis gerbang masuk wisata.",
+    },
+    "pantai_bulbul": {
+        "name": "Pantai Pasir Putih Lumban Bulbul",
+        "category": "Destinasi Wisata & Budaya",
+        "cat_key": "wisata",
+        "icon": "fa-solid fa-umbrella-beach",
+        "color": "#0D9488",
+        "address": "Desa Lumban Bulbul, Balige",
+        "description": "Objek wisata pantai pasir putih air tawar Danau Toba terpopuler di Balige.",
+        "courier_note": "Ramai akhir pekan. Pengantaran ke kafe/pondok pantai dapat langsung ke lokasi pemilik.",
+    },
+    "kantor_bupati_toba": {
+        "name": "Kantor Bupati Toba (Balige)",
+        "category": "Instansi & Layanan Publik",
+        "cat_key": "publik",
+        "icon": "fa-solid fa-landmark",
+        "color": "#475569",
+        "address": "Jl. Sutomo No. 1, Balige",
+        "description": "Kompleks pusat perkantoran pemerintahan Kabupaten Toba.",
+        "courier_note": "Penerimaan berkas resmi dan paket logistik wajib melalui bagian Protokol / Bagian Umum.",
+    },
+    "polres_toba": {
+        "name": "Polres Toba (Balige)",
+        "category": "Instansi & Layanan Publik",
+        "cat_key": "publik",
+        "icon": "fa-solid fa-shield-halved",
+        "color": "#475569",
+        "address": "Jl. By Pass, Balige",
+        "description": "Markas komando kepolisian resor penjagaan kamtibmas Kabupaten Toba.",
+        "courier_note": "Akses 24 jam via penjagaan gerbang utama SPKT.",
+    },
+    "hotel_labersa": {
+        "name": "Hotel Labersa Grand Toba & Convention",
+        "category": "Akomodasi & Hotel",
+        "cat_key": "hotel",
+        "icon": "fa-solid fa-hotel",
+        "color": "#2563EB",
+        "address": "Jl. Sariburaja Pagar Batu, Balige",
+        "description": "Hotel bintang 4 mewah dan gedung konvensi terbesar di kawasan pesisir Danau Toba Balige.",
+        "courier_note": "Pengantaran paket tamu atau staf drop di meja Front Desk / Concierge hotel.",
+    },
+    "hotel_niagara": {
+        "name": "Hotel Niagara Balige",
+        "category": "Akomodasi & Hotel",
+        "cat_key": "hotel",
+        "icon": "fa-solid fa-hotel",
+        "color": "#2563EB",
+        "address": "Jl. Sutomo, Balige",
+        "description": "Hotel penginapan strategis di pusat kota Balige.",
+        "courier_note": "Titik antar di meja resepsionis lobi depan hotel.",
+    },
+    "hotel_pardede": {
+        "name": "Hotel Pardede International Balige",
+        "category": "Akomodasi & Hotel",
+        "cat_key": "hotel",
+        "icon": "fa-solid fa-hotel",
+        "color": "#2563EB",
+        "address": "Jl. Pardede Pasir, Balige",
+        "description": "Resor hotel legendaris tepi danau dengan pemandangan langsung ke perairan Danau Toba.",
+        "courier_note": "Akses motor kurir mudah, pengantaran paket via meja resepsionis.",
+    },
+    "spbu_balige": {
+        "name": "SPBU Pertamina Balige (Juanda)",
+        "category": "Stasiun Pengisian BBM",
+        "cat_key": "spbu",
+        "icon": "fa-solid fa-gas-pump",
+        "color": "#B91C1C",
+        "address": "Jl. Ir. H. Juanda, Balige",
+        "description": "Stasiun pengisian bahan bakar kendaraan di gerbang masuk barat kota Balige.",
+        "courier_note": "Titik isi BBM armada kurir sebelum melakukan pengantaran jarak jauh.",
+    },
+    "pelabuhan_balige": {
+        "name": "Pelabuhan Kapal Balige (Dermaga Mulia Raja)",
+        "category": "Instansi & Layanan Publik",
+        "cat_key": "publik",
+        "icon": "fa-solid fa-ship",
+        "color": "#475569",
+        "address": "Dermaga Mulia Raja Balige",
+        "description": "Dermaga penyeberangan kapal motor wisata dan logistik perairan Danau Toba menuju Pulau Samosir.",
+        "courier_note": "Serah terima kargo paket antar-pulau di pos dermaga pelabuhan.",
+    },
+    "lapangan_sisingamangaraja_balige": {
+        "name": "Lapangan Sisingamangaraja (Alun-alun Balige)",
+        "category": "Destinasi Wisata & Budaya",
+        "cat_key": "wisata",
+        "icon": "fa-solid fa-landmark",
+        "color": "#0D9488",
+        "address": "Pusat Kota Balige",
+        "description": "Alun-alun terbuka pusat kegiatan olahraga, festival budaya, dan upacara kenegaraan warga Balige.",
+        "courier_note": "Pusat keramaian warga sore hari. Parkir motor di sekeliling trotoar lapangan.",
+    },
+    "kantor_pos_balige": {
+        "name": "Kantor Pos Indonesia Balige",
+        "category": "Instansi & Layanan Publik",
+        "cat_key": "publik",
+        "icon": "fa-solid fa-box",
+        "color": "#2563EB",
+        "address": "Jl. Sisingamangaraja, Balige",
+        "description": "Kantor pos sentra distribusi logistik utama Kabupaten Toba.",
+        "courier_note": "Pusat transit antar-cabang ekspedisi paket kilat.",
+    },
+    "bri_balige": {
+        "name": "Bank BRI Cabang Balige",
+        "category": "Layanan Perbankan & ATM",
+        "cat_key": "bank",
+        "icon": "fa-solid fa-building-columns",
+        "color": "#059669",
+        "address": "Jl. Sisingamangaraja, Balige",
+        "description": "Kantor cabang utama perbankan BUMN BRI di Kabupaten Toba.",
+        "courier_note": "Paket diserahkan ke bagian persuratan lantai 1 melalui pos satpam.",
+    },
+    "mandiri_balige": {
+        "name": "Bank Mandiri Balige",
+        "category": "Layanan Perbankan & ATM",
+        "cat_key": "bank",
+        "icon": "fa-solid fa-building-columns",
+        "color": "#059669",
+        "address": "Jl. Sisingamangaraja, Balige",
+        "description": "Kantor bank BUMN Mandiri dengan layanan perbankan dan ATM tunai.",
+        "courier_note": "Penerimaan berkas kurir via customer service / pos pengamanan.",
+    },
+    "bni_balige": {
+        "name": "Bank BNI Balige",
+        "category": "Layanan Perbankan & ATM",
+        "cat_key": "bank",
+        "icon": "fa-solid fa-building-columns",
+        "color": "#059669",
+        "address": "Jl. Sisingamangaraja, Balige",
+        "description": "Kantor bank BUMN BNI di pusat kota Balige.",
+        "courier_note": "Penerimaan paket melalui pos sekuriti lobi bank.",
+    },
+    "bank_sumut_balige": {
+        "name": "Bank Sumut Cabang Balige",
+        "category": "Layanan Perbankan & ATM",
+        "cat_key": "bank",
+        "icon": "fa-solid fa-building-columns",
+        "color": "#059669",
+        "address": "Jl. Sisingamangaraja, Balige",
+        "description": "Kantor cabang Bank Pembangunan Daerah Sumatera Utara di Balige.",
+        "courier_note": "Serah terima dokumen kurir via bagian umum.",
+    },
+    "apotek_kimia_farma_balige": {
+        "name": "Apotek Kimia Farma Balige",
+        "category": "Fasilitas Kesehatan",
+        "cat_key": "kesehatan",
+        "icon": "fa-solid fa-pills",
+        "color": "#DC2626",
+        "address": "Jl. Sisingamangaraja No. 62, Balige",
+        "description": "Apotek farmasi resmi penyedia resep obat dan perlengkapan medis terpercaya.",
+        "courier_note": "Pengantaran obat atau pesanan farmasi langsung ke meja apoteker.",
+    },
+    "sman_1_balige": {
+        "name": "SMA Negeri 1 Balige",
+        "category": "Pendidikan & Kampus",
+        "cat_key": "pendidikan",
+        "icon": "fa-solid fa-graduation-cap",
+        "color": "#7C3AED",
+        "address": "Jl. Gereja Soposurung, Balige",
+        "description": "Sekolah menengah atas negeri unggulan di Balige.",
+        "courier_note": "Pengantaran paket drop di pos jaga satpam gerbang sekolah.",
+    },
+    "sman_2_balige": {
+        "name": "SMA Negeri 2 Balige (Soposurung)",
+        "category": "Pendidikan & Kampus",
+        "cat_key": "pendidikan",
+        "icon": "fa-solid fa-graduation-cap",
+        "color": "#7C3AED",
+        "address": "Kompleks Asrama Soposurung, Balige",
+        "description": "Sekolah berasrama unggulan dengan prestasi akademik nasional.",
+        "courier_note": "Paket siswa dan staf wajib diserahkan ke pos pengamanan asrama gerbang utama.",
+    },
+    "hutanta_coffee": {
+        "name": "Hutanta Coffee & Resto Balige",
+        "category": "Kuliner & Kafe",
+        "cat_key": "kuliner",
+        "icon": "fa-solid fa-mug-hot",
+        "color": "#D97706",
+        "address": "Soposurung, Balige",
+        "description": "Kafe modern dengan racikan kopi Arabika Toba istimewa dan suasana estetik.",
+        "courier_note": "Titik pick-up dan delivery pesanan kuliner populer bagi kalangan muda.",
+    },
+    "tepi_danau_bistro": {
+        "name": "Tepi Danau Bistro Balige",
+        "category": "Kuliner & Restoran",
+        "cat_key": "kuliner",
+        "icon": "fa-solid fa-utensils",
+        "color": "#D97706",
+        "address": "Tepi Danau Toba, Balige",
+        "description": "Restoran tepi danau dengan panorama memukau Danau Toba dan menu nusantara.",
+        "courier_note": "Pesanan makanan siap antar di area kasir utama.",
+    },
+    "lagos_cafe": {
+        "name": "Lago's Cafe Balige",
+        "category": "Kuliner & Kafe",
+        "cat_key": "kuliner",
+        "icon": "fa-solid fa-mug-hot",
+        "color": "#D97706",
+        "address": "Pantai Sibolahotang, Balige",
+        "description": "Kafe santai ruang terbuka dengan pemandangan semilir angin Danau Toba.",
+        "courier_note": "Akses jalan wisata lancar untuk sepeda motor kurir.",
+    },
+    "rm_bpk_panca": {
+        "name": "RM BPK Panca Balige",
+        "category": "Kuliner & Restoran",
+        "cat_key": "kuliner",
+        "icon": "fa-solid fa-utensils",
+        "color": "#D97706",
+        "address": "Jl. Gereja, Balige",
+        "description": "Destinasi kuliner tradisional khas Batak favorit masyarakat lokal.",
+        "courier_note": "Pesanan antar ramai pada jam makan siang.",
+    },
+
+    # Porsea & Wilayah Sekitar
+    "pasar_porsea": {
+        "name": "Pusat Pasar & Dermaga Porsea",
+        "category": "Perbelanjaan & Niaga",
+        "cat_key": "niaga",
+        "icon": "fa-solid fa-store",
+        "color": "#EA580C",
+        "address": "Jl. Patuan Nagari, Porsea",
+        "description": "Pasar tradisional dan dermaga muara Sungai Asahan sentra ekonomi kawasan timur Toba.",
+        "courier_note": "Hari pekan pasar sangat ramai, disarankan parkir di jalan penghubung luar.",
+    },
+    "rsud_porsea": {
+        "name": "RSUD Porsea",
+        "category": "Fasilitas Kesehatan",
+        "cat_key": "kesehatan",
+        "icon": "fa-solid fa-hospital",
+        "color": "#DC2626",
+        "address": "Jl. Parapat, Porsea",
+        "description": "Rumah sakit umum daerah penyedia fasilitas rawat inap dan IGD wilayah timur Toba.",
+        "courier_note": "Penerimaan paket via resepsionis informasi gedung rawat jalan.",
+    },
+    "simpang_sigumpar": {
+        "name": "Simpang Sigumpar (Porsea)",
+        "category": "Kawasan Pemukiman & Simpang",
+        "cat_key": "wilayah",
+        "icon": "fa-solid fa-signs-post",
+        "color": "#64748B",
+        "address": "Sigumpar, Toba",
+        "description": "Persimpangan utama rute Porsea menuju Laguboti.",
+        "courier_note": "Titik penyeberangan jalan antar-kecamatan.",
+    },
+    "makam_sisingamangaraja": {
+        "name": "Makam Sisingamangaraja XII (Sigumpar)",
+        "category": "Destinasi Wisata & Budaya",
+        "cat_key": "wisata",
+        "icon": "fa-solid fa-landmark",
+        "color": "#0D9488",
+        "address": "Kecamatan Sigumpar, Toba",
+        "description": "Kompleks pemakaman Pahlawan Nasional Raja Sisingamangaraja XII yang dikeramatkan.",
+        "courier_note": "Situs cagar budaya nasional.",
+    },
+    "pantai_parparean": {
+        "name": "Pantai Pasir Putih Parparean (Porsea)",
+        "category": "Destinasi Wisata & Budaya",
+        "cat_key": "wisata",
+        "icon": "fa-solid fa-umbrella-beach",
+        "color": "#0D9488",
+        "address": "Desa Parparean II, Porsea",
+        "description": "Objek rekreasi pesisir pantai pasir putih alami di teluk Danau Toba.",
+        "courier_note": "Akses jalan beton mulus hingga pintu gerbang objek wisata.",
+    },
+    "jembatan_sungai_asahan": {
+        "name": "Jembatan Sungai Asahan (Porsea)",
+        "category": "Instansi & Layanan Publik",
+        "cat_key": "publik",
+        "icon": "fa-solid fa-bridge",
+        "color": "#475569",
+        "address": "Porsea, Toba",
+        "description": "Infrastruktur jembatan strategis hulu Sungai Asahan penghubung lintas Sumatera.",
+        "courier_note": "Jembatan dua jalur utama lalu lintas antarkota.",
+    },
+
+    # Siborong-borong & Tarutung
+    "bandara_silangit": {
+        "name": "Bandara Internasional Silangit (DTB)",
+        "category": "Instansi & Layanan Publik",
+        "cat_key": "publik",
+        "icon": "fa-solid fa-plane-departure",
+        "color": "#2563EB",
+        "address": "Siborong-borong, Tapanuli Utara",
+        "description": "Bandara internasional gerbang penerbangan utama Kawasan Strategis Pariwisata Danau Toba.",
+        "courier_note": "Penerimaan kargo paket di terminal kargo bandara (Gate Cargo Logistik).",
+    },
+    "pasar_siborongborong": {
+        "name": "Pusat Pasar Siborong-borong",
+        "category": "Perbelanjaan & Niaga",
+        "cat_key": "niaga",
+        "icon": "fa-solid fa-store",
+        "color": "#EA580C",
+        "address": "Siborong-borong, Tapanuli Utara",
+        "description": "Pusat transaksi niaga ternak dan komoditas kuliner ombus-ombus dataran tinggi Silindung.",
+        "courier_note": "Sangat padat pada hari pekan pasar tradisional.",
+    },
+    "jl_dolok_sanggul": {
+        "name": "Jl. Dolok Sanggul - Siborong-borong",
+        "category": "Kawasan Pemukiman & Simpang",
+        "cat_key": "wilayah",
+        "icon": "fa-solid fa-road",
+        "color": "#64748B",
+        "address": "Siborong-borong",
+        "description": "Jalan penghubung poros utama Kabupaten Humbang Hasundutan dan Tapanuli Utara.",
+        "courier_note": "Jalan lintas pegunungan beraspal halus.",
+    },
+    "pusat_kota_tarutung": {
+        "name": "Pusat Kota / Pasar Tarutung",
+        "category": "Perbelanjaan & Niaga",
+        "cat_key": "niaga",
+        "icon": "fa-solid fa-store",
+        "color": "#EA580C",
+        "address": "Tarutung, Tapanuli Utara",
+        "description": "Ibukota Kabupaten Tapanuli Utara, pusat niaga dan denyut ekonomi Lembah Silindung.",
+        "courier_note": "Akses jalan perkotaan ramai dengan ruko-ruko perdagangan.",
+    },
+    "rsud_tarutung": {
+        "name": "RSUD Swadana Tarutung",
+        "category": "Fasilitas Kesehatan",
+        "cat_key": "kesehatan",
+        "icon": "fa-solid fa-hospital",
+        "color": "#DC2626",
+        "address": "Jl. Sisingamangaraja, Tarutung",
+        "description": "Rumah sakit rujukan tipe B terlengkap di kawasan Tapanuli Bagian Utara.",
+        "courier_note": "Akses IGD 24 jam dan lobi utama pendaftaran pasien.",
+    },
+    "salib_kasih": {
+        "name": "Wisata Salib Kasih Siatas Barita",
+        "category": "Destinasi Wisata & Budaya",
+        "cat_key": "wisata",
+        "icon": "fa-solid fa-camera",
+        "color": "#0D9488",
+        "address": "Siatas Barita, Tarutung",
+        "description": "Monumen wisata rohani bersejarah Dr. I.L. Nommensen di puncak bukit pinus dengan pemandangan spektakuler.",
+        "courier_note": "Akses jalan menanjak beraspal. Pengantaran paket drop di pos karcis gerbang bawah.",
+    },
+    "kantor_pusat_hkbp": {
+        "name": "Kantor Pusat HKBP Pearaja Tarutung",
+        "category": "Tempat Ibadah",
+        "cat_key": "ibadah",
+        "icon": "fa-solid fa-church",
+        "color": "#0284C7",
+        "address": "Pearaja, Tarutung",
+        "description": "Kantor pusat Ephorus dan pimpinan sinode gereja HKBP sedunia.",
+        "courier_note": "Pengantaran berkas dinas drop di meja administrasi kantor pusat sinode.",
+    },
+}
+
+
+def get_landmark_info(key: str) -> dict[str, Any]:
+    """
+    Kembalikan data metadata lengkap dari suatu landmark.
+    Jika tidak ada di kamus LANDMARK_DETAILS, lakukan derivasi otomatis berbasis kategori.
+    """
+    if key in LANDMARK_DETAILS:
+        return LANDMARK_DETAILS[key]
+
+    label = LANDMARK_LABELS.get(key, key.replace("_", " ").title())
+    k_lower = key.lower()
+
+    if any(w in k_lower for w in ("del", "sma", "smp", "sekolah", "kampus")):
+        return {
+            "name": label,
+            "category": "Pendidikan & Kampus",
+            "cat_key": "pendidikan",
+            "icon": "fa-solid fa-graduation-cap",
+            "color": "#7C3AED",
+            "address": "Kawasan Pendidikan Toba",
+            "description": "Lembaga pendidikan formal dan sarana belajar terpadu.",
+            "courier_note": "Penerimaan paket via pos satpam gerbang utama.",
+        }
+    elif any(w in k_lower for w in ("rs_", "rsud", "puskesmas", "klinik", "apotek")):
+        return {
+            "name": label,
+            "category": "Fasilitas Kesehatan",
+            "cat_key": "kesehatan",
+            "icon": "fa-solid fa-hospital",
+            "color": "#DC2626",
+            "address": "Fasilitas Layanan Medis",
+            "description": "Pusat pelayanan kesehatan dan penanganan medis masyarakat.",
+            "courier_note": "Akses darurat steril, parkir motor kurir tersedia.",
+        }
+    elif any(w in k_lower for w in ("pasar", "mixue", "indomaret", "alfamart")):
+        return {
+            "name": label,
+            "category": "Perbelanjaan & Niaga",
+            "cat_key": "niaga",
+            "icon": "fa-solid fa-store",
+            "color": "#EA580C",
+            "address": "Pusat Perbelanjaan & Niaga",
+            "description": "Pusat jual beli barang kebutuhan dan aktivitas perdagangan.",
+            "courier_note": "Parkir motor kurir di depan gerai pertokoan.",
+        }
+    elif any(w in k_lower for w in ("spbu", "pertamina")):
+        return {
+            "name": label,
+            "category": "Stasiun Pengisian BBM",
+            "cat_key": "spbu",
+            "icon": "fa-solid fa-gas-pump",
+            "color": "#B91C1C",
+            "address": "Stasiun SPBU",
+            "description": "Fasilitas pengisian bahan bakar resmi kendaraan bermotor.",
+            "courier_note": "Titik pengisian bahan bakar armada kurir operasional.",
+        }
+    elif any(w in k_lower for w in ("bank", "bri", "bni", "mandiri", "sumut")):
+        return {
+            "name": label,
+            "category": "Layanan Perbankan & ATM",
+            "cat_key": "bank",
+            "icon": "fa-solid fa-building-columns",
+            "color": "#059669",
+            "address": "Kantor Perbankan",
+            "description": "Layanan transaksi keuangan dan jaringan ATM tunai.",
+            "courier_note": "Serah terima paket melalui pos pengamanan atau resepsionis.",
+        }
+    elif any(w in k_lower for w in ("hotel", "penginapan")):
+        return {
+            "name": label,
+            "category": "Akomodasi & Hotel",
+            "cat_key": "hotel",
+            "icon": "fa-solid fa-hotel",
+            "color": "#2563EB",
+            "address": "Akomodasi Penginapan",
+            "description": "Fasilitas hotel dan penginapan pengunjung.",
+            "courier_note": "Titik serah terima di meja resepsionis lobi hotel.",
+        }
+    elif any(w in k_lower for w in ("cafe", "kopi", "coffee", "bistro", "bpk", "resto")):
+        return {
+            "name": label,
+            "category": "Kuliner & Restoran",
+            "cat_key": "kuliner",
+            "icon": "fa-solid fa-utensils",
+            "color": "#D97706",
+            "address": "Destinasi Kuliner",
+            "description": "Tempat bersantap makanan dan minuman khas daerah.",
+            "courier_note": "Pesanan makanan siap saji atau delivery.",
+        }
+    elif any(w in k_lower for w in ("gereja", "hkbp")):
+        return {
+            "name": label,
+            "category": "Tempat Ibadah",
+            "cat_key": "ibadah",
+            "icon": "fa-solid fa-church",
+            "color": "#0284C7",
+            "address": "Kompleks Peribadatan",
+            "description": "Sarana ibadah dan pembinaan rohani jemaat.",
+            "courier_note": "Pengantaran surat dinas ke kantor sekretariat gereja.",
+        }
+    elif any(w in k_lower for w in ("pantai", "museum", "salib", "makam", "wisata", "pelabuhan", "lapangan")):
+        return {
+            "name": label,
+            "category": "Destinasi Wisata & Budaya",
+            "cat_key": "wisata",
+            "icon": "fa-solid fa-camera",
+            "color": "#0D9488",
+            "address": "Objek Wisata Daerah",
+            "description": "Destinasi rekreasi panorama alam dan warisan budaya Toba.",
+            "courier_note": "Drop paket di loket informasi atau gerbang masuk wisata.",
+        }
+    else:
+        return {
+            "name": label,
+            "category": "Kawasan Wilayah",
+            "cat_key": "wilayah",
+            "icon": "fa-solid fa-location-dot",
+            "color": "#64748B",
+            "address": "Wilayah Toba",
+            "description": "Titik lokasi jalan dan pemukiman terverifikasi di peta OSM.",
+            "courier_note": "Akses jalan aspal terhubung ke jaringan rute kurir.",
+        }
+
 
 
 def parse_coordinates(text: str) -> tuple[float, float] | None:
     """
-    Ekstrak pasangan koordinat (latitude, longitude) dari teks atau URL Google Maps.
+    Ekstrak pasangan koordinat (latitude, longitude) dari teks input.
     Contoh input valid:
       - "2.3832, 99.1486"
       - "2.3832,99.1486"
@@ -274,36 +1084,6 @@ def parse_coordinates(text: str) -> tuple[float, float] | None:
         except ValueError:
             pass
     return None
-
-
-def generate_google_maps_url(
-    origin_coords: tuple[float, float],
-    dest_coords: tuple[float, float],
-    path_nodes: list[Any] | None = None,
-    origin_name: str | None = None,
-    dest_name: str | None = None,
-) -> str:
-    """
-    Hasilkan URL Google Maps Direction resmi.
-    Jika nama tempat tersedia, gunakan parameter query nama tempat (Google Maps URLs format)
-    agar Google Maps menampilkan nama lokasi yang tepat (misal: 'Mixue Balige' dan 'Institut Teknologi Del')
-    bukan nama bisnis acak di sebelah lokasi hasil reverse-geocoding koordinat mentah.
-    """
-    import re
-    import urllib.parse
-
-    orig_str = f"{origin_coords[0]:.6f},{origin_coords[1]:.6f}"
-    dest_str = f"{dest_coords[0]:.6f},{dest_coords[1]:.6f}"
-
-    if origin_name and dest_name:
-        clean_orig = re.sub(r"\s*\([^)]*\)", "", origin_name).strip()
-        clean_dest = re.sub(r"\s*\([^)]*\)", "", dest_name).strip()
-        if clean_orig and clean_dest:
-            orig_q = urllib.parse.quote_plus(clean_orig)
-            dest_q = urllib.parse.quote_plus(clean_dest)
-            return f"https://www.google.com/maps/dir/?api=1&origin={orig_q}&destination={dest_q}"
-
-    return f"https://www.google.com/maps/dir/{orig_str}/{dest_str}/"
 
 
 
@@ -350,6 +1130,10 @@ LAGUBOTI_LOCAL_LANDMARKS = {
     "hub_jne_laguboti", "it_del_sitoluama", "sma_unggul_del", "simpang_balige_jalan",
     "pasar_laguboti", "spbu_laguboti", "stasiun_laguboti", "kantor_camat",
     "polsek_laguboti", "puskesmas_laguboti", "desa_sitoluama", "desa_lumban_bagasan",
+    "desa_aruan", "desa_sibuea", "indomaret_laguboti", "alfamart_laguboti",
+    "bank_sumut_laguboti", "bri_laguboti", "rm_bpk_flyover", "ambarado_cafe",
+    "gereja_hkbp_laguboti", "smp_negeri_1_laguboti", "sman_1_laguboti",
+    "klinik_del_sitoluama", "kantor_pos_laguboti",
 }
 
 
@@ -446,8 +1230,8 @@ def load_laguboti_graph(
         is_hub  = (osmid == hub_osm_id)
         is_goal = (osmid == goal_osm_id)
 
-        # x=lon, y=lat sesuai konvensi models.py (heuristik Euclidean)
-        graph.add_node(Node(node_id, name, x=lon, y=lat, is_hub=is_hub, is_goal=is_goal))
+        # x=lon, y=lat sesuai konvensi models.py (heuristik Great-Circle / Euclidean)
+        graph.add_node(Node(node_id, name, x=lon, y=lat, is_hub=is_hub, is_goal=is_goal, is_geo=True))
 
     # 5b. Tambahkan semua edge (deduplikasi agar undirected)
     added_pairs: set[tuple[str, str]] = set()
@@ -516,7 +1300,7 @@ def load_laguboti_graph_distance_only(
         name    = name_raw if name_raw else f"Persimpangan-{node_id[-5:]}"
         is_hub  = (osmid == hub_osm_id)
         is_goal = (osmid == goal_osm_id)
-        graph.add_node(Node(node_id, name, x=lon, y=lat, is_hub=is_hub, is_goal=is_goal))
+        graph.add_node(Node(node_id, name, x=lon, y=lat, is_hub=is_hub, is_goal=is_goal, is_geo=True))
 
     added_pairs: set[tuple[str, str]] = set()
     for u, v, data in G_sub.edges(data=True):
@@ -855,7 +1639,7 @@ LANDMARK_SYNONYMS: dict[str, list[str]] = {
         "trans sumatra highway", "trans sumatera highway", "trans sumatra",
     ],
 
-    # Tempat Terkenal & Populer Google Maps
+    # Tempat Terkenal & Fasilitas Penting Koridor Toba
     "mixue_balige": [
         "mixue balige", "mixue", "es krim mixue", "eskrim mixue", "toko mixue", "kedai mixue",
     ],
@@ -939,6 +1723,21 @@ LANDMARK_SYNONYMS: dict[str, list[str]] = {
     ],
     "pantai_parparean": [
         "pantai parparean", "pantai pasir putih parparean", "parparean",
+    ],
+    "gereja_hkbp_laguboti": [
+        "gereja hkbp laguboti", "hkbp laguboti kota", "hkbp laguboti",
+    ],
+    "smp_negeri_1_laguboti": [
+        "smp negeri 1 laguboti", "smp 1 laguboti", "smpn 1 laguboti",
+    ],
+    "sman_1_laguboti": [
+        "sma negeri 1 laguboti", "sma 1 laguboti", "sman 1 laguboti",
+    ],
+    "klinik_del_sitoluama": [
+        "klinik del", "klinik pratama del", "klinik del sitoluama", "klinik it del",
+    ],
+    "kantor_pos_laguboti": [
+        "kantor pos laguboti", "pos laguboti",
     ],
 }
 

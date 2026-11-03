@@ -23,7 +23,12 @@ import math
 import pytest
 
 from certan_01.data import build_urban_road_network, list_available_scenarios
-from certan_01.heuristics import C_MIN_PER_KM, euclidean_heuristic, zero_heuristic
+from certan_01.heuristics import (
+    C_MIN_PER_KM,
+    euclidean_heuristic,
+    haversine_distance_km,
+    zero_heuristic,
+)
 from certan_01.models import Graph, Node
 from certan_01.search import astar_search, uniform_cost_search
 
@@ -367,3 +372,39 @@ class TestHeuristicConsistency:
             f"Pelanggaran Konsistensi Heuristik ditemukan:\n"
             + "\n".join(violations)
         )
+
+
+# ---------------------------------------------------------------------------
+# 6. Pengujian Jarak GPS & Admissibility Skala Nyata (OpenStreetMap Toba)
+# ---------------------------------------------------------------------------
+
+class TestGPSDistanceAndAdmissibility:
+    """Memverifikasi fungsi jarak geografis dan skala heuristik pada koordinat GPS."""
+
+    def test_haversine_distance_calculation(self) -> None:
+        # IT Del Sitoluama: (2.3832, 99.1486)
+        # Hub JNE Laguboti : (2.3667, 99.1247)
+        # Jarak lurus riil: ~3.26 km
+        n_hub = Node("HUB", "JNE Laguboti", x=99.1247, y=2.3667, is_geo=True)
+        n_itdel = Node("ITDEL", "IT Del", x=99.1486, y=2.3832, is_geo=True)
+
+        dist_km = haversine_distance_km(n_hub, n_itdel)
+        assert 3.0 < dist_km < 3.6, f"Jarak Haversine harus ~3.3 km, didapat {dist_km:.2f} km"
+
+        # Memastikan Node.euclidean_distance_to juga menghasilkan jarak yang sama
+        node_dist = n_hub.euclidean_distance_to(n_itdel)
+        assert math.isclose(dist_km, node_dist, rel_tol=1e-5)
+
+    def test_graph_min_cost_per_km(self, urban_graph: Graph) -> None:
+        # Pada urban_graph sintetis, biaya per km berkisar 1500 - 2500
+        assert math.isclose(urban_graph.min_cost_per_km, 1500.0)
+
+    def test_gps_node_heuristic_admissible(self) -> None:
+        # Heuristik GPS harus terukur dalam Rupiah riil dan bernilai wajar
+        n_hub = Node("HUB", "JNE Laguboti", x=99.1247, y=2.3667, is_geo=True)
+        n_itdel = Node("ITDEL", "IT Del", x=99.1486, y=2.3832, is_geo=True)
+
+        h_val = euclidean_heuristic(n_hub, n_itdel, c_min_per_km=200.0)
+        # ~3.26 km * 200 Rp/km = ~652 Rp
+        assert 600.0 < h_val < 720.0
+        assert euclidean_heuristic(n_itdel, n_itdel) == 0.0

@@ -42,9 +42,29 @@ class Node:
     y: float
     is_hub: bool = False
     is_goal: bool = False
+    is_geo: bool = False
 
     def euclidean_distance_to(self, other: "Node") -> float:
-        """Hitung jarak garis lurus (Euclidean) ke simpul lain dalam satuan km."""
+        """
+        Hitung jarak garis lurus ke simpul lain dalam satuan km.
+
+        Mendukung dua mode:
+          1. Jaringan sintetis bidang datar (Milestone 1): x dan y adalah km.
+          2. Jaringan GPS nyata OpenStreetMap (Laguboti dsk): x=lon, y=lat dalam derajat.
+             Dihitung menggunakan formula Great-Circle (Haversine) yang terbukti
+             admissible (selalu <= jarak jalan riil pada permukaan bumi).
+        """
+        if self.is_geo or other.is_geo or (abs(self.x) > 40.0 and abs(self.y) < 40.0):
+            lat1 = math.radians(self.y)
+            lon1 = math.radians(self.x)
+            lat2 = math.radians(other.y)
+            lon2 = math.radians(other.x)
+            dlat = lat2 - lat1
+            dlon = lon2 - lon1
+            a = math.sin(dlat / 2.0) ** 2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2.0) ** 2
+            c = 2.0 * math.atan2(math.sqrt(a), math.sqrt(max(0.0, 1.0 - a)))
+            return 6371.0088 * c
+
         return math.sqrt((self.x - other.x) ** 2 + (self.y - other.y) ** 2)
 
     def __repr__(self) -> str:
@@ -166,6 +186,19 @@ class Graph:
             if node.is_goal:
                 return node
         return None
+
+    @property
+    def min_cost_per_km(self) -> float:
+        """
+        Batas bawah biaya per km pada seluruh ruas jalan dalam graf.
+        Digunakan untuk membobot fungsi heuristik A* agar terjamin admissible.
+        """
+        min_c = float("inf")
+        for edges in self._adjacency.values():
+            for e in edges:
+                if e.fuel_cost_per_km > 0:
+                    min_c = min(min_c, e.fuel_cost_per_km)
+        return min_c if min_c != float("inf") else 0.0
 
     def summary(self) -> str:
         """Ringkasan singkat struktur graf."""
